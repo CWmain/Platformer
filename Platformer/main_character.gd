@@ -8,9 +8,12 @@ const JUMP_VELOCITY = -800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
 @export var health: int
+@export var grapple_angle: int = 45
+
 @onready var health_label = %Health
 
 @onready var ray_cast = $RayCast2D
+@onready var chain = $chain
 
 var is_on_ice = false
 # -1 = left 0 = false 1 = right
@@ -19,11 +22,13 @@ var is_grappling = false
 var is_facing = 1
 
 var collision_point : Vector2
-const grapple_length = 150
+const grapple_length = 500
 
 func _ready():
 	health_label.text = "Health: %d" % [health]
 	pass
+
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -47,12 +52,14 @@ func _physics_process(delta):
 	
 	# Set graple direction
 	if is_facing == -1:
-		ray_cast.set_indexed("rotation", -45)
+		ray_cast.set_indexed("rotation", -grapple_angle)
+		
 	else:
-		ray_cast.set_indexed("rotation", 45)
+		ray_cast.set_indexed("rotation", grapple_angle)
 		
 	# Do graple
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		print("Attemptiong grapple")
 		if ray_cast.is_colliding():
 			print("Grapling")
 			
@@ -62,21 +69,29 @@ func _physics_process(delta):
 	# Stop grapple
 	if Input.is_action_just_released("jump") && is_grappling:
 		print("Stop grappling")
+		chain.set_indexed("size", Vector2(32, 32))
+		chain.set_indexed("rotation", 180)
 		is_grappling = false
 	
 	if is_grappling:
 		
 		#self.set_indexed("position", collision_point)
+		var vector_to_collision_point: Vector2 = collision_point - self.get_indexed("position")
+
 		
-		
+		velocity += vector_to_collision_point
+		#velocity += (collision_point - self.get_indexed("position"))
+		chain.set_indexed("size", Vector2(32, vector_to_collision_point.length()))
+		chain.set_indexed("rotation", 180+self.get_indexed("position").angle_to_point(collision_point))
+		#chain.set_indexed("size", Vector2(32+abs(vector_to_collision_point.x), 32))
 		# Multiply by is_facing to change directions
-		velocity.x += 100 * is_facing
+		#velocity.x += 100 * is_facing
 		# For distance from graple point x increase y
-		velocity.y += -100 - abs(collision_point.x - grapple_length)/80
+		#velocity.y += -100 - abs(collision_point.x - grapple_length)/80
 		
 		var max_grapple_height : bool = (collision_point.y - grapple_length) > self.get_indexed("position").y
-		var max_grapple_left : bool = (collision_point.x - (grapple_length*2)) > self.get_indexed("position").x
-		var max_grapple_right : bool = (collision_point.x + (grapple_length*2)) < self.get_indexed("position").x
+		var max_grapple_left : bool = (collision_point.x - (grapple_length)) > self.get_indexed("position").x
+		var max_grapple_right : bool = (collision_point.x + (grapple_length)) < self.get_indexed("position").x
 		
 		#Stop grappling
 		if (max_grapple_height or max_grapple_left or max_grapple_right):
