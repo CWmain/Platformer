@@ -28,7 +28,11 @@ func _ready():
 	health_label.text = "Health: %d" % [health]
 	pass
 
-
+func _process(delta):
+	var tip_loc = to_local(collision_point)
+	if is_grappling:
+		chain.set_indexed("size", Vector2(32, 32+tip_loc.length()))
+		chain.set_indexed("rotation", 180 + tip_loc.angle())
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -81,8 +85,7 @@ func _physics_process(delta):
 		
 		velocity += vector_to_collision_point
 		#velocity += (collision_point - self.get_indexed("position"))
-		chain.set_indexed("size", Vector2(32, vector_to_collision_point.length()))
-		chain.set_indexed("rotation", 180+self.get_indexed("position").angle_to_point(collision_point))
+
 		#chain.set_indexed("size", Vector2(32+abs(vector_to_collision_point.x), 32))
 		# Multiply by is_facing to change directions
 		#velocity.x += 100 * is_facing
