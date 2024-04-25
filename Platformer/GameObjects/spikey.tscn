@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ec1nu5pvsqak"]
+
+[ext_resource type="Script" path="res://GameObjects/spikey.gd" id="1_35t8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4cm"]
+size = Vector2(16, 14.25)
+
+[node name="spikey" type="Area2D"]
+script = ExtResource("1_35t8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -7.125)
+shape = SubResource("RectangleShape2D_rc4cm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

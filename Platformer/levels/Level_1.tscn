@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://6y24wcwc7b4s"]
+
+[ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_8sqaf"]
+[ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
+[ext_resource type="Texture2D" uid="uid://ctb80acl7h83a" path="res://GameObjects/TileSheetTemp.png" id="3_hejdp"]
+[ext_resource type="PackedScene" uid="uid://fwfpuyh08wnv" path="res://GameObjects/icy.tscn" id="3_n0kd5"]
+[ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="5_1agf5"]
+[ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
+[ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
+[ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="9_ytmgy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnije"]
+texture = ExtResource("3_hejdp")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.125, -8, -3.125)
+5:0/0/physics_layer_0/polygon_0/one_way = true
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/custom_data_0 = true
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/custom_data_0 = true
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/custom_data_0 = true
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_bagw1"]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "isSpike"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_bnije")
+
+[node name="Node" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_8sqaf")
+
+[node name="SceneObjects" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="SceneObjects"]
+texture_filter = 1
+offset_top = -719.0
+offset_right = 2853.0
+offset_bottom = 519.0
+texture = ExtResource("2_1vqmh")
+stretch_mode = 1
+
+[node name="icy" parent="SceneObjects" instance=ExtResource("3_n0kd5")]
+position = Vector2(556, 322)
+
+[node name="TileMap" type="TileMap" parent="SceneObjects"]
+texture_filter = 1
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_bagw1")
+format = 2
+layer_0/tile_data = PackedInt32Array(393216, 65537, 0, 393217, 65537, 0, 393218, 1, 1, 393219, 1, 1, 393220, 65537, 0, 393221, 65537, 0, 393222, 1, 1, 393223, 1, 1, 393224, 65537, 0, 393225, 65537, 0, 393226, 1, 1, 393227, 1, 1, 393228, 65537, 0, 393229, 65537, 0, 393230, 65537, 0, 458751, 1, 1, 393215, 1, 1, 327679, 1, 1, 262143, 1, 1, 196607, 1, 1, 131071, 1, 1, 65535, 1, 1, -1, 1, 1, 327682, 1, 0, 327683, 1, 0, 262150, 1, 0, 262151, 1, 0, 262154, 1, 0, 262155, 1, 0, 262152, 327681, 0, 262153, 327681, 0, 327686, 1, 1, 327687, 1, 1, 327690, 1, 1, 327691, 1, 1, 196611, 327681, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 393241, 1, 0, 393242, 1, 0, 393243, 1, 0, 393244, 1, 0, 393245, 1, 0, 393246, 1, 0, 393247, 1, 0, 393248, 1, 0, 393249, 1, 0, 393250, 1, 0, 65548, 327681, 0, 65549, 327681, 0, 65550, 327681, 0, 65551, 327681, 0, 65552, 327681, 0, -196589, 327681, 0, -196588, 327681, 0, -196587, 327681, 0, -196586, 327681, 0, -196585, 327681, 0, -196584, 327681, 0, -65521, 327681, 0, -65520, 327681, 0, -65519, 327681, 0, -65518, 327681, 0, -65517, 327681, 0, -65516, 327681, 0, -65537, 1, 1, -131073, 1, 1, -196609, 1, 1, -262145, 1, 1, -327681, 1, 1, -393217, 1, 1, -458753, 1, 1, -524289, 1, 1, -589825, 1, 1, -655360, 1, 1, -655359, 1, 1, -655358, 1, 1, -655352, 1, 1, -655351, 1, 1, -655350, 1, 1, -655349, 1, 1, -655348, 1, 1, -655347, 1, 1, -655346, 1, 1, -655345, 1, 1, -655344, 1, 1, -655343, 1, 1, -655342, 1, 1, -655341, 1, 1, -655340, 1, 1, -655339, 1, 1, -655338, 1, 1, -655337, 1, 1, -655336, 1, 1, -655335, 1, 1, -655334, 1, 1, -655333, 1, 1, -655332, 1, 1, -655331, 1, 1, -655330, 1, 1, -655329, 1, 1, -655328, 1, 1, -655327, 1, 1, -655326, 1, 1, -655325, 1, 1, -589789, 1, 1, -524253, 1, 1, -393181, 1, 1, -458717, 1, 1, -327645, 1, 1, -262109, 1, 1, -196573, 1, 1, -131037, 1, 1, -65501, 1, 1, 35, 1, 1, 65571, 1, 1, 131107, 1, 1, 196643, 1, 1, 262179, 1, 1, 327715, 1, 1, 393251, 1, 1, -655357, 1, 1, -655356, 1, 1, -655355, 1, 1, -655354, 1, 1, -655353, 1, 1, 131092, 1, 0, 131093, 1, 0, 131094, 1, 0, 131095, 1, 0, 131096, 1, 0, 131097, 1, 0, 131098, 1, 0, 131099, 1, 0, 131100, 1, 0, 131101, 1, 0, 131102, 1, 0, 131103, 1, 0, 131104, 1, 0, 131105, 1, 0, 131106, 1, 0, 393235, 65537, 0, 196628, 65537, 1, 262164, 65537, 1, 327700, 65537, 1, 262156, 1, 2, 327692, 1, 3, 262157, 65537, 2, 327693, 65537, 3, 262158, 1, 2, 327694, 1, 3, 262159, 65537, 2, 327695, 65537, 3, 262160, 1, 2, 327696, 1, 3, 262161, 65537, 2, 327697, 65537, 3, 262162, 1, 2, 327698, 1, 3, 262163, 65537, 2, 327699, 65537, 3)
+
+[node name="Finish" parent="SceneObjects" instance=ExtResource("5_1agf5")]
+position = Vector2(2700, 91)
+next_lvl = "res://levels/Level_2.tscn"
+
+[node name="Player" parent="SceneObjects" instance=ExtResource("6_2s6l2")]
+position = Vector2(87, 156)
+collision_mask = 3
+health = 3
+
+[node name="Camera2D" type="Camera2D" parent="SceneObjects/Player"]
+position = Vector2(-0.200001, 0.199995)
+scale = Vector2(0.2, 0.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Coins" type="Node" parent="SceneObjects"]
+
+[node name="coin" parent="SceneObjects/Coins" instance=ExtResource("7_8n6jj")]
+position = Vector2(221, 365)
+
+[node name="coin2" parent="SceneObjects/Coins" instance=ExtResource("7_8n6jj")]
+position = Vector2(538, 278)
+
+[node name="coin3" parent="SceneObjects/Coins" instance=ExtResource("7_8n6jj")]
+position = Vector2(869, 283)
+
+[node name="spikey" parent="SceneObjects" instance=ExtResource("9_ytmgy")]
+position = Vector2(960, 343)
+scale = Vector2(40, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="UI"]
+offset_left = 41.0
+offset_top = 15.0
+offset_right = 277.0
+offset_bottom = 111.0
+
+[node name="Health" type="Label" parent="UI/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Health: 0"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="UI/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 2

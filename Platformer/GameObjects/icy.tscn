@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwfpuyh08wnv"]
+
+[ext_resource type="Script" path="res://GameObjects/icy.gd" id="1_crmi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4cm"]
+size = Vector2(143, 20)
+
+[node name="icy" type="Area2D"]
+position = Vector2(455, 199)
+script = ExtResource("1_crmi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_rc4cm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

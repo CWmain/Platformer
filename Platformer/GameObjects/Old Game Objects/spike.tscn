@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://oojr805y2j0b"]
+
+[ext_resource type="Texture2D" uid="uid://ctb80acl7h83a" path="res://GameObjects/TileSheetTemp.png" id="1_faxel"]
+[ext_resource type="Script" path="res://GameObjects/Old Game Objects/spike.gd" id="1_qb7vb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a34j"]
+size = Vector2(32, 32)
+
+[node name="Spike" type="Area2D"]
+scale = Vector2(5, 5)
+monitorable = false
+script = ExtResource("1_qb7vb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_faxel")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4a34j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
