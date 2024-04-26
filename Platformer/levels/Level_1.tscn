@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=12 format=3 uid="uid://6y24wcwc7b4s"]
 
+[ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
 [ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_8sqaf"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
 [ext_resource type="Texture2D" uid="uid://ctb80acl7h83a" path="res://GameObjects/TileSheetTemp.png" id="3_hejdp"]
@@ -62,6 +63,7 @@ custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_bnije")
 
 [node name="Node" type="Node"]
+script = ExtResource("1_8pe5h")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 600.0
 const JUMP_VELOCITY = -800.0
 
+@onready var player_vars = get_node("/root/Global")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
@@ -25,14 +27,8 @@ var collision_point : Vector2
 const grapple_length = 500
 
 func _ready():
-	health_label.text = "Health: %d" % [health]
+	health_label.text = "Health: %d" % [player_vars.health]
 	pass
-
-func _process(delta):
-	var tip_loc = to_local(collision_point)
-	if is_grappling:
-		chain.set_indexed("size", Vector2(32, 32+tip_loc.length()))
-		chain.set_indexed("rotation", 180 + tip_loc.angle())
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -74,17 +70,16 @@ func _physics_process(delta):
 	if Input.is_action_just_released("jump") && is_grappling:
 		print("Stop grappling")
 		chain.set_indexed("size", Vector2(32, 32))
-		chain.set_indexed("rotation", 180)
+		chain.set_indexed("rotation", TAU/2)
 		is_grappling = false
 	
 	if is_grappling:
 		
 		#self.set_indexed("position", collision_point)
 		var vector_to_collision_point: Vector2 = collision_point - self.get_indexed("position")
-
 		
 		velocity += vector_to_collision_point
-		#velocity += (collision_point - self.get_indexed("position"))
+		
 
 		#chain.set_indexed("size", Vector2(32+abs(vector_to_collision_point.x), 32))
 		# Multiply by is_facing to change directions
@@ -115,10 +110,21 @@ func _physics_process(delta):
 				velocity.x = move_toward(velocity.x, 0, 100)
 
 	move_and_slide()
+	
+	if is_grappling:
+		var tip_loc = to_local(collision_point)
+		var chain_base : Vector2 = chain.get_indexed("position")
+		var length = (tip_loc - chain_base)
+		print("Length ", length )
+		print("Chain Base ", chain_base)
+		print("Tip Loc", tip_loc)
+
+		chain.set_indexed("size", Vector2(32, length.length()*4))
+		chain.set_indexed("rotation", TAU/4 + chain_base.angle_to(tip_loc))
 
 func remove_health(amount: int):
-	health -= amount
-	health_label.text = "Health: %d" % [health]
+	player_vars.health -= amount
+	health_label.text = "Health: %d" % [player_vars.health]
 
 func set_last_ground():
 	self.set_indexed("position", last_on_ground)
