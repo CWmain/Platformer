@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=13 format=3 uid="uid://6y24wcwc7b4s"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
 [ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_8sqaf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
 [ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="9_ytmgy"]
+[ext_resource type="PackedScene" uid="uid://dfuscteiwe1ky" path="res://gui/pause_menu.tscn" id="10_0r6ai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnije"]
 texture = ExtResource("3_hejdp")
@@ -151,3 +152,10 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("10_0r6ai")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+main_menu_path = "res://gui/level_select.tscn"
