@@ -1,21 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1m68v2i2yar"]
+[gd_scene load_steps=3 format=3 uid="uid://n1m68v2i2yar"]
 
 [ext_resource type="Script" path="res://gui/level_select.gd" id="1_v0j2t"]
+[ext_resource type="Texture2D" uid="uid://depvqs0y8xl2s" path="res://GameObjects/TitleImage.png" id="2_w6u2b"]
 
 [node name="level_select" type="Node2D"]
 script = ExtResource("1_v0j2t")
 dir_path = "res://levels"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 920.0
-offset_bottom = 418.0
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 328)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -328.0
+offset_right = 578.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 color = Color(0.512865, 0.774058, 0.289161, 1)
 
+[node name="Title" type="Sprite2D" parent="."]
+texture_filter = 5
+position = Vector2(586, 124)
+scale = Vector2(5.46094, 8.0625)
+texture = ExtResource("2_w6u2b")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 57.0
-offset_top = 32.0
-offset_right = 843.0
-offset_bottom = 310.0
+offset_left = 198.0
+offset_top = 308.0
+offset_right = 984.0
+offset_bottom = 586.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -25,3 +45,4 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+columns = 4

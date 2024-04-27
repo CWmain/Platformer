@@ -78,7 +78,7 @@ func _physics_process(delta):
 		#self.set_indexed("position", collision_point)
 		var vector_to_collision_point: Vector2 = collision_point - self.get_indexed("position")
 		
-		velocity += vector_to_collision_point
+		velocity += 20 * vector_to_collision_point * delta
 		
 
 		#chain.set_indexed("size", Vector2(32+abs(vector_to_collision_point.x), 32))
@@ -100,7 +100,7 @@ func _physics_process(delta):
 			if is_on_floor():			
 				velocity.x = direction * (SPEED + 100)
 			else:
-				velocity.x += direction * SPEED
+				velocity.x += direction * SPEED * delta * 5
 				if abs(velocity.x) >= SPEED*2:
 					velocity.x = direction * (SPEED * 2)
 		else:
