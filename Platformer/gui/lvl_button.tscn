@@ -7,4 +7,12 @@ offset_right = 91.0
 offset_bottom = 55.0
 script = ExtResource("1_53k2o")
 
+[node name="Collected" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 55.0
+text = "0 / 5"
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]

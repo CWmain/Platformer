@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqw60juy4bm3h"]
+[gd_scene load_steps=10 format=3 uid="uid://dqw60juy4bm3h"]
 
 [ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_prusu"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="1_yg2s8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7oe85vplrbpg" path="res://GameObjects/Old Game Objects/platform.tscn" id="3_iq75q"]
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="4_3puoh"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="5_qaq5r"]
+[ext_resource type="PackedScene" uid="uid://dfuscteiwe1ky" path="res://gui/pause_menu.tscn" id="6_me31f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnije"]
 texture = ExtResource("2_mvw1j")
@@ -52,6 +53,7 @@ sources/1 = SubResource("TileSetAtlasSource_bnije")
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_prusu")
+level_name = "Level_2"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -118,6 +120,13 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("6_me31f")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+main_menu_path = "res://gui/level_select.tscn"
 
 [node name="coin" parent="." instance=ExtResource("5_qaq5r")]
 position = Vector2(504, 260)

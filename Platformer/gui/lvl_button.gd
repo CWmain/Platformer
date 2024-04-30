@@ -5,8 +5,6 @@ extends Button
 
 @export_file var level_path
 
-
-
 func _on_color_rect_mouse_entered():
 	get_node("ColorRect").color = hover_color
 	pass # Replace with function body.
@@ -22,3 +20,7 @@ func _on_pressed():
 		
 	get_tree().change_scene_to_file(level_path)
 	pass # Replace with function body.
+
+func set_collected(ctext: String):
+	var collected = get_node("Collected")
+	collected.text = ctext
