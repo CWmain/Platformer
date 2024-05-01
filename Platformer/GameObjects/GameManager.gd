@@ -1,6 +1,7 @@
 extends Node
 
-@export var level_name = "Level_1"
+@export var level_name : String = "Level_1"
+
 var save_path = "user://%s.save" % level_name
 
 @onready var global = $"/root/Global"
