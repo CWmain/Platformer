@@ -1,7 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://deqfci0e0t815"]
+[gd_scene load_steps=11 format=3 uid="uid://deqfci0e0t815"]
 
 [ext_resource type="Script" path="res://GameObjects/coin.gd" id="1_e3bw4"]
-[ext_resource type="Texture2D" uid="uid://dpdvpultwhclf" path="res://GameObjects/coin.png" id="1_hdssk"]
+[ext_resource type="Texture2D" uid="uid://btjn8gha5ittt" path="res://GameObjects/ani_coin.png" id="2_chb41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj302"]
+atlas = ExtResource("2_chb41")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ofp"]
+atlas = ExtResource("2_chb41")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_depjs"]
+atlas = ExtResource("2_chb41")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lqfi"]
+atlas = ExtResource("2_chb41")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xjq8"]
+atlas = ExtResource("2_chb41")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j1t3"]
+atlas = ExtResource("2_chb41")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jao53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj302")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ofp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_depjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xjq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j1t3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teqyn"]
 radius = 18.0
@@ -9,9 +59,11 @@ radius = 18.0
 [node name="coin" type="Area2D"]
 script = ExtResource("1_e3bw4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_hdssk")
+sprite_frames = SubResource("SpriteFrames_jao53")
+autoplay = "default"
+frame_progress = 0.410044
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_teqyn")
