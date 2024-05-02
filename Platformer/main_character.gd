@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -800.0
 @onready var game_manager = %GameManager
 
 
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")

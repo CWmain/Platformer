@@ -17,7 +17,7 @@ func _ready():
 	health_bar.display_health(health)
 
 func take_damage(amount: int):
-	health -= 1
+	health -= amount
 	health_bar.display_health(health)
 	
 

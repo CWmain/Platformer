@@ -1,16 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=12 format=3 uid="uid://6y24wcwc7b4s"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
-[ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_8sqaf"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
+[ext_resource type="PackedScene" uid="uid://dgj4ye5q61idm" path="res://gui/game_manager.tscn" id="2_lwyry"]
 [ext_resource type="Texture2D" uid="uid://ctb80acl7h83a" path="res://GameObjects/TileSheetTemp.png" id="3_hejdp"]
 [ext_resource type="PackedScene" uid="uid://fwfpuyh08wnv" path="res://GameObjects/icy.tscn" id="3_n0kd5"]
 [ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="5_1agf5"]
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
 [ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="9_ytmgy"]
-[ext_resource type="PackedScene" uid="uid://dfuscteiwe1ky" path="res://gui/pause_menu.tscn" id="10_0r6ai"]
-[ext_resource type="PackedScene" uid="uid://b4ikhscndktlq" path="res://gui/health_bar.tscn" id="11_trram"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnije"]
 texture = ExtResource("3_hejdp")
@@ -91,43 +89,8 @@ sources/1 = SubResource("TileSetAtlasSource_bnije")
 [node name="Node" type="Node"]
 script = ExtResource("1_8pe5h")
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" parent="." instance=ExtResource("2_lwyry")]
 unique_name_in_owner = true
-script = ExtResource("1_8sqaf")
-
-[node name="UI" type="CanvasLayer" parent="GameManager"]
-
-[node name="Panel" type="Panel" parent="GameManager/UI"]
-offset_left = 41.0
-offset_top = 15.0
-offset_right = 277.0
-offset_bottom = 111.0
-
-[node name="Points" type="Label" parent="GameManager/UI/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Points: 0"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="PauseMenu" parent="GameManager/UI" instance=ExtResource("10_0r6ai")]
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 1.0
-main_menu_path = "res://gui/level_select.tscn"
-
-[node name="Health_Bar" parent="GameManager/UI" instance=ExtResource("11_trram")]
-offset_left = 50.0
-offset_top = 23.0
-offset_right = 172.0
-offset_bottom = 61.0
 
 [node name="SceneObjects" type="Node" parent="."]
 
