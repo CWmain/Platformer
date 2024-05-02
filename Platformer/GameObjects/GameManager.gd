@@ -8,8 +8,20 @@ var save_path = "user://%s.save" % level_name
 
 @onready var points_lable = %Points
 
+@onready var health_bar = $UI/Health_Bar
 
 var points = 0
+@export var health = 3
+
+func _ready():
+	health_bar.display_health(health)
+
+func take_damage(amount: int):
+	health -= 1
+	health_bar.display_health(health)
+	
+
+
 
 func add_points():
 	self.points += 1

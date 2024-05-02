@@ -80,7 +80,6 @@ scale = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("4_3puoh")]
 position = Vector2(87, 156)
-health = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-0.200001, 0.199995)

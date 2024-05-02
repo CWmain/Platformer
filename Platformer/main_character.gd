@@ -5,14 +5,14 @@ const SPEED = 600.0
 const JUMP_VELOCITY = -800.0
 
 @onready var player_vars = get_node("/root/Global")
+@onready var game_manager = %GameManager
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
-@export var health: int
-@export var grapple_angle: int = 45
 
-@onready var health_label = %Health
+@export var grapple_angle: int = 45
 
 @onready var ray_cast = $RayCast2D
 @onready var chain = $chain
@@ -27,7 +27,6 @@ var collision_point : Vector2
 const grapple_length = 500
 
 func _ready():
-	health_label.text = "Health: %d" % [player_vars.health]
 	pass
 
 func _physics_process(delta):
@@ -131,8 +130,8 @@ func _physics_process(delta):
 		chain.set_indexed("rotation", TAU/4 + chain_base.angle_to(tip_loc))
 
 func remove_health(amount: int):
-	player_vars.health -= amount
-	health_label.text = "Health: %d" % [player_vars.health]
+	game_manager.take_damage(amount)
+
 
 func set_last_ground():
 	self.set_indexed("position", last_on_ground)
