@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4ikhscndktlq"]
+
+[ext_resource type="Script" path="res://gui/health_bar.gd" id="1_crmmr"]
+[ext_resource type="Texture2D" uid="uid://c6n51jo7qbea4" path="res://gui/health.png" id="1_h5kgc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04pt6"]
+atlas = ExtResource("1_h5kgc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0cql"]
+atlas = ExtResource("1_h5kgc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibw1t"]
+atlas = ExtResource("1_h5kgc")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Health_Bar" type="HBoxContainer"]
+offset_right = 116.0
+offset_bottom = 38.0
+script = ExtResource("1_crmmr")
+metadata/_edit_use_anchors_ = true
+
+[node name="h1" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_04pt6")
+expand_mode = 3
+
+[node name="h2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_i0cql")
+expand_mode = 3
+
+[node name="h3" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_ibw1t")
+expand_mode = 3
