@@ -7,10 +7,5 @@ extends Area2D
 
 func _on_body_entered(body):
 	if (body.name == "Player"):
-		if (next_lvl == null):
-			print("No assigned next level")
-			pass	
-		game_manager.save_highscore()
-		print("Going to next lvl")
-		get_tree().change_scene_to_file(next_lvl)
+		game_manager.game_won()
 

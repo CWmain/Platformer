@@ -91,6 +91,9 @@ script = ExtResource("1_8pe5h")
 
 [node name="GameManager" parent="." instance=ExtResource("2_lwyry")]
 unique_name_in_owner = true
+next_level = "res://levels/Level_2.tscn"
+main_menu = "res://gui/level_select.tscn"
+cur_level = "res://levels/Level_1.tscn"
 
 [node name="SceneObjects" type="Node" parent="."]
 
