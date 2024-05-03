@@ -14,11 +14,14 @@ var save_path = "user://%s.save" % level_name
 
 @onready var health_bar = $UI/Health_Bar
 
+@onready var pause_menu = $UI/PauseMenu
 @onready var win_menu = $UI/winMenu
 @onready var loss_menu = $UI/lossMenu
 
 var points = 0
 @export var health = 3
+
+var in_menu: bool = false
 
 func _ready():
 	health_bar.display_health(health)
@@ -27,6 +30,9 @@ func _ready():
 	loss_menu.set_main_menu(main_menu)
 	loss_menu.set_cur_level(cur_level)
 	
+func _process(_delta):
+	if !in_menu and Input.is_action_just_pressed("pause"):
+		pause_menu.pauseMenu()
 
 func take_damage(amount: int):
 	health -= amount
@@ -36,11 +42,13 @@ func take_damage(amount: int):
 	
 
 func game_won():
+	in_menu = true
 	save_highscore()
 	Engine.time_scale = 0
 	win_menu.show()
 
 func game_loss():
+	in_menu = true
 	Engine.time_scale = 0
 	loss_menu.show()
 
