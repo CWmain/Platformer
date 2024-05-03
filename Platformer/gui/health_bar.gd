@@ -9,6 +9,7 @@ func display_health(health: int):
 	var count = 0
 	for container in all:
 		if count >= health:
+			container.get_child(0).set_emitting(true)
 			container.texture.region = empty
 		else:
 			container.texture.region = full

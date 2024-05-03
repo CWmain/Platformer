@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ikhscndktlq"]
+[gd_scene load_steps=7 format=3 uid="uid://b4ikhscndktlq"]
 
 [ext_resource type="Script" path="res://gui/health_bar.gd" id="1_crmmr"]
 [ext_resource type="Texture2D" uid="uid://c6n51jo7qbea4" path="res://gui/health.png" id="1_h5kgc"]
@@ -6,6 +6,13 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_04pt6"]
 atlas = ExtResource("1_h5kgc")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cntfs"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0cql"]
 atlas = ExtResource("1_h5kgc")
@@ -27,14 +34,42 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_04pt6")
 expand_mode = 3
 
+[node name="h1p" type="GPUParticles2D" parent="h1"]
+position = Vector2(19, 19)
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_cntfs")
+lifetime = 0.2
+one_shot = true
+randomness = 1.0
+
 [node name="h2" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
 texture = SubResource("AtlasTexture_i0cql")
 expand_mode = 3
+
+[node name="h2p" type="GPUParticles2D" parent="h2"]
+position = Vector2(19, 19)
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_cntfs")
+lifetime = 0.2
+one_shot = true
+randomness = 1.0
 
 [node name="h3" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_ibw1t")
 expand_mode = 3
+
+[node name="h3p" type="GPUParticles2D" parent="h3"]
+position = Vector2(19, 19)
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_cntfs")
+lifetime = 0.2
+one_shot = true
+randomness = 1.0
