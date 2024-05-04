@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=13 format=3 uid="uid://6y24wcwc7b4s"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
 [ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="9_ytmgy"]
+[ext_resource type="PackedScene" uid="uid://ffci5yn1m8nd" path="res://GameObjects/checkpoint.tscn" id="10_grv82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnije"]
 texture = ExtResource("3_hejdp")
@@ -125,6 +126,7 @@ position = Vector2(87, 156)
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Player"]
 position = Vector2(-0.200001, 0.199995)
 scale = Vector2(0.2, 0.2)
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
@@ -142,3 +144,7 @@ position = Vector2(869, 283)
 [node name="spikey" parent="SceneObjects" instance=ExtResource("9_ytmgy")]
 position = Vector2(960, 343)
 scale = Vector2(40, 1)
+
+[node name="Checkpoint" parent="." instance=ExtResource("10_grv82")]
+position = Vector2(715, 240)
+scale = Vector2(5, 5)
