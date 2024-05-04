@@ -55,8 +55,6 @@ script = ExtResource("1_muvl1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g6hhq")
-frame = 4
-frame_progress = 1.0
 speed_scale = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]

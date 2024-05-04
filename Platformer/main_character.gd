@@ -31,12 +31,13 @@ const grapple_length = 500
 func _ready():
 	pass
 
+func set_respawn(coords : Vector2):
+	last_on_ground = coords
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	else:
-		last_on_ground = self.get_indexed("position")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
