@@ -13,6 +13,9 @@ spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
+color = Color(1, 0, 0, 1)
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0cql"]
 atlas = ExtResource("1_h5kgc")
@@ -23,10 +26,10 @@ atlas = ExtResource("1_h5kgc")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Health_Bar" type="HBoxContainer"]
-offset_right = 116.0
-offset_bottom = 38.0
+offset_right = 38.0
+offset_bottom = 10.0
+alignment = 1
 script = ExtResource("1_crmmr")
-metadata/_edit_use_anchors_ = true
 
 [node name="h1" type="TextureRect" parent="."]
 texture_filter = 1
@@ -62,6 +65,7 @@ randomness = 1.0
 [node name="h3" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
 texture = SubResource("AtlasTexture_ibw1t")
 expand_mode = 3
 

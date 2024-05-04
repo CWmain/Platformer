@@ -49,6 +49,16 @@ func game_won():
 
 func game_loss():
 	in_menu = true
+	var death_delay : Timer = Timer.new()
+	
+	add_child(death_delay)
+	death_delay.one_shot = true
+	death_delay.autostart = false
+	death_delay.start(0.5)
+	death_delay.timeout.connect(_death_delay_timeout)
+		
+
+func _death_delay_timeout():
 	Engine.time_scale = 0
 	loss_menu.show()
 

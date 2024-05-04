@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgj4ye5q61idm"]
 
-[ext_resource type="Script" path="res://GameObjects/GameManager.gd" id="1_a4fbd"]
+[ext_resource type="Script" path="res://gui/GameManager.gd" id="1_7243n"]
 [ext_resource type="PackedScene" uid="uid://dfuscteiwe1ky" path="res://gui/pause_menu.tscn" id="2_qxu45"]
 [ext_resource type="PackedScene" uid="uid://xjqeqho15uj2" path="res://gui/win_menu.tscn" id="3_8hx3n"]
 [ext_resource type="PackedScene" uid="uid://b4ikhscndktlq" path="res://gui/health_bar.tscn" id="3_38bf1"]
 [ext_resource type="PackedScene" uid="uid://cvv1yckk62a5g" path="res://gui/loss_menu.tscn" id="4_6dhdd"]
 
 [node name="GameManager" type="Node"]
-script = ExtResource("1_a4fbd")
+script = ExtResource("1_7243n")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
