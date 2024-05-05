@@ -123,13 +123,6 @@ next_lvl = "res://levels/Level_2.tscn"
 [node name="Player" parent="SceneObjects" instance=ExtResource("6_2s6l2")]
 position = Vector2(87, 156)
 
-[node name="Camera2D" type="Camera2D" parent="SceneObjects/Player"]
-position = Vector2(-0.200001, 0.199995)
-scale = Vector2(0.2, 0.2)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
 [node name="Coins" type="Node" parent="SceneObjects"]
 
 [node name="coin" parent="SceneObjects/Coins" instance=ExtResource("7_8n6jj")]

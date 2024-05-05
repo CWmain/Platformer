@@ -82,12 +82,6 @@ scale = Vector2(5, 5)
 [node name="Player" parent="." instance=ExtResource("4_3puoh")]
 position = Vector2(87, 156)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-0.200001, 0.199995)
-scale = Vector2(0.2, 0.2)
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
 [node name="coin" parent="." instance=ExtResource("5_qaq5r")]
 position = Vector2(504, 260)
 

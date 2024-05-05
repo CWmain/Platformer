@@ -121,7 +121,7 @@ stretch_mode = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_kqnrl")
 animation = &"idle"
-frame_progress = 0.670505
+frame_progress = 0.32524
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1y5ff")
@@ -129,5 +129,12 @@ shape = SubResource("RectangleShape2D_1y5ff")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -80)
 collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-0.200001, 0.199995)
+scale = Vector2(0.2, 0.2)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 
 [connection signal="draw" from="." to="." method="_on_draw"]
