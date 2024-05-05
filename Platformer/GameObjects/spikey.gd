@@ -11,7 +11,7 @@ func _on_body_entered(body):
 		if !timerStart:
 			timerStart = true
 			$GoToCheckpoint.start()
-		body.remove_health(1)
+			body.remove_health(1)
 		
 
 	pass # Replace with function body.
