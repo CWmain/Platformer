@@ -21,6 +21,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ray_cast = $RayCast2D
 @onready var chain = $chain
 
+# Variable to make player immune to damage
+var immune = false
+
 var is_on_ice = false
 # -1 = left 0 = false 1 = right
 var is_grappling = false
@@ -143,11 +146,21 @@ func _physics_process(delta):
 		chain.set_indexed("rotation", TAU/4 + chain_base.angle_to(tip_loc))
 
 func remove_health(amount: int):
-	game_manager.take_damage(amount)
+	if immune == false:
+		game_manager.take_damage(amount)
+		$iframes.start()
+		immune = true
+
+func _on_iframes_timeout():
+	immune = false
+	$iframes.stop()
+	pass # Replace with function body.
 
 
 func set_last_ground():
-	self.set_indexed("position", last_on_ground)
+	position = last_on_ground
+	velocity = Vector2(0,0)
+	
 	pass
 
 func set_is_on_ice(val : bool):
@@ -162,4 +175,6 @@ func _on_area_2d_body_entered(body):
 		is_on_ice = false
 	print(body.name)
 	pass # Replace with function body.
+
+
 
