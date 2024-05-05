@@ -14,6 +14,8 @@ const JUMP_VELOCITY = -800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 @export var grapple_angle: int = 45
 
 @onready var ray_cast = $RayCast2D
@@ -54,10 +56,18 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
+	
+	if (direction == 0):
+		animated_sprite_2d.play("idle")
+	else:
+		animated_sprite_2d.play("run")
+	
 	if (direction > 0):
 		is_facing = 1
+		animated_sprite_2d.flip_h = false;
 	elif (direction < 0):
 		is_facing = -1
+		animated_sprite_2d.flip_h = true;
 	
 	
 	# Set graple direction
