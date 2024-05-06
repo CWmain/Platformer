@@ -54,7 +54,7 @@ func game_loss():
 	add_child(death_delay)
 	death_delay.one_shot = true
 	death_delay.autostart = false
-	death_delay.start(0.5)
+	death_delay.start(0.7)
 	death_delay.timeout.connect(_death_delay_timeout)
 		
 
