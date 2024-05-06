@@ -20,7 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spiked_timer = $spiked
 @onready var damage_particles = $DamageParticles
-
+var damage_taken : bool = false
 
 @export var grapple_angle: int = 45
 @onready var ray_cast = $RayCast2D
@@ -67,6 +67,9 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
+	#Takes control away from player when damage is taken
+	if damage_taken:
+		direction = 0	
 		
 	if (direction == 0):
 		animated_sprite_2d.play("idle")
@@ -141,6 +144,7 @@ func spike_damage():
 	velocity = -velocity
 
 	if spiked_timer.is_stopped():
+		damage_taken = true
 		damage_particles.set_emitting(true)
 		spiked_timer.start()
 		remove_health(1)
@@ -150,7 +154,7 @@ func spike_damage():
 func _on_spiked_timeout():
 	spiked_timer.stop()
 	set_last_ground()
-	movementType = MovementType.Air
+	damage_taken = false
 	pass # Replace with function body.
 
 func grapple_visuals():
