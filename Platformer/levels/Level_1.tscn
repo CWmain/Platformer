@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=16 format=3 uid="uid://6y24wcwc7b4s"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
 [ext_resource type="PackedScene" uid="uid://dgj4ye5q61idm" path="res://gui/game_manager.tscn" id="2_lwyry"]
 [ext_resource type="Texture2D" uid="uid://ctb80acl7h83a" path="res://GameObjects/TileSheetTemp.png" id="3_hejdp"]
 [ext_resource type="PackedScene" uid="uid://fwfpuyh08wnv" path="res://GameObjects/icy.tscn" id="3_n0kd5"]
+[ext_resource type="Texture2D" uid="uid://bhx4kby3e01g2" path="res://Parallax Background/FarSky.png" id="3_ppdc8"]
+[ext_resource type="Texture2D" uid="uid://bnq7qgedlxw4c" path="res://Parallax Background/FarCloud.png" id="4_a8whk"]
+[ext_resource type="Texture2D" uid="uid://cqrdi5qmw7uaf" path="res://Parallax Background/CloseTrees.png" id="4_j5if8"]
 [ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="5_1agf5"]
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
@@ -90,6 +93,34 @@ sources/1 = SubResource("TileSetAtlasSource_bnije")
 [node name="Node" type="Node"]
 script = ExtResource("1_8pe5h")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(1.5, 1.5)
+motion_scale = Vector2(0, 0)
+
+[node name="SkySpirte" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(398.667, 223.333)
+texture = ExtResource("3_ppdc8")
+
+[node name="FarClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="FC" type="Sprite2D" parent="ParallaxBackground/FarClouds"]
+position = Vector2(0, 158)
+texture = ExtResource("4_a8whk")
+centered = false
+
+[node name="CloseTrees" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Trees" type="Sprite2D" parent="ParallaxBackground/CloseTrees"]
+position = Vector2(959, 526)
+texture = ExtResource("4_j5if8")
+
 [node name="GameManager" parent="." instance=ExtResource("2_lwyry")]
 unique_name_in_owner = true
 next_level = "res://levels/Level_2.tscn"
@@ -99,6 +130,7 @@ cur_level = "res://levels/Level_1.tscn"
 [node name="SceneObjects" type="Node" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
+visible = false
 texture_filter = 1
 offset_top = -719.0
 offset_right = 2853.0
@@ -121,7 +153,7 @@ position = Vector2(2700, 91)
 next_lvl = "res://levels/Level_2.tscn"
 
 [node name="Player" parent="SceneObjects" instance=ExtResource("6_2s6l2")]
-position = Vector2(87, 156)
+position = Vector2(79, 435)
 
 [node name="Coins" type="Node" parent="SceneObjects"]
 
