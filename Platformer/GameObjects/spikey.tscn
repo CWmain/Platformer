@@ -12,9 +12,5 @@ script = ExtResource("1_35t8t")
 position = Vector2(8, -7.125)
 shape = SubResource("RectangleShape2D_rc4cm")
 
-[node name="GoToCheckpoint" type="Timer" parent="."]
-wait_time = 0.5
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="timeout" from="GoToCheckpoint" to="." method="_on_go_to_checkpoint_timeout"]

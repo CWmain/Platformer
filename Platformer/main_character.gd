@@ -18,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var spiked_timer = $spiked
 
 @export var grapple_angle: int = 45
 @onready var ray_cast = $RayCast2D
@@ -37,6 +38,7 @@ var collision_point : Vector2
 const grapple_length = 500
 
 func _ready():
+	spiked_timer.stop()
 	pass
 
 func set_respawn(coords : Vector2):
@@ -77,7 +79,6 @@ func _physics_process(delta):
 		is_facing = -1
 		animated_sprite_2d.flip_h = true;
 	
-	
 	# Set graple direction
 	if is_facing == -1:
 		ray_cast.set_indexed("rotation", -grapple_angle)
@@ -100,7 +101,6 @@ func _physics_process(delta):
 		chain.set_indexed("rotation", PI)
 
 		is_grappling = false
-
 	
 	#Give me the modification to velocity that grappling does
 	if is_grappling:
@@ -133,14 +133,18 @@ func _physics_process(delta):
 
 
 func remove_health(amount: int):
-	if immune == false:
-		game_manager.take_damage(amount)
-		$iframes.start()
-		immune = true
+	game_manager.take_damage(amount)
 
-func _on_iframes_timeout():
-	immune = false
-	$iframes.stop()
+
+func spike_damage():
+	velocity = -velocity
+	if spiked_timer.is_stopped():
+		spiked_timer.start()
+		remove_health(1)
+
+func _on_spiked_timeout():
+	spiked_timer.stop()
+	set_last_ground()
 	pass # Replace with function body.
 
 func grapple_visuals():

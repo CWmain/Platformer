@@ -137,8 +137,8 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
-[node name="iframes" type="Timer" parent="."]
-wait_time = 0.6
+[node name="spiked" type="Timer" parent="."]
+process_callback = 0
 
 [connection signal="draw" from="." to="." method="_on_draw"]
-[connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]
+[connection signal="timeout" from="spiked" to="." method="_on_spiked_timeout"]
