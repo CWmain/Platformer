@@ -1,9 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://bp1nlmyq3t7wb"]
+[gd_scene load_steps=16 format=3 uid="uid://bp1nlmyq3t7wb"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_63o6y"]
 [ext_resource type="Texture2D" uid="uid://bkmjalnkk1qku" path="res://GameObjects/chain.png" id="3_7ckhg"]
 [ext_resource type="Texture2D" uid="uid://bsl8bgqtk1t2x" path="res://Character/CharacterIdle.png" id="3_qemro"]
 [ext_resource type="Texture2D" uid="uid://dcsif0hv4dcob" path="res://Character/CharacterMove.png" id="4_5688i"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dfo8f"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lno3"]
 atlas = ExtResource("3_qemro")
@@ -95,6 +105,16 @@ scale = Vector2(5, 5)
 collision_layer = 5
 collision_mask = 7
 script = ExtResource("1_63o6y")
+
+[node name="DamageParticles" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_dfo8f")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
 
 [node name="chain" type="TextureRect" parent="."]
 texture_repeat = 2
