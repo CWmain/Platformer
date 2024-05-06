@@ -72,7 +72,8 @@ func _physics_process(delta):
 		direction = 0	
 		
 	if (direction == 0):
-		animated_sprite_2d.play("idle")
+		if !damage_taken:
+			animated_sprite_2d.play("idle")
 	else:
 		movementType = MovementType.Walk if is_on_floor() else MovementType.Air
 		animated_sprite_2d.play("run")
@@ -144,6 +145,7 @@ func spike_damage():
 	velocity = -velocity
 
 	if spiked_timer.is_stopped():
+		animated_sprite_2d.play("damage")
 		damage_taken = true
 		damage_particles.set_emitting(true)
 		spiked_timer.start()
