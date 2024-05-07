@@ -11,8 +11,8 @@ var save_path = "user://%s.save" % level_name
 @onready var global = $"/root/Global"
 
 @onready var points_lable = %Points
-
-@onready var health_bar = $UI/Health_Bar
+@onready var fps = $UI/Panel/FPS
+@onready var health_bar = $UI/Panel/Health_Bar
 
 @onready var pause_menu = $UI/PauseMenu
 @onready var win_menu = $UI/winMenu
@@ -31,6 +31,8 @@ func _ready():
 	loss_menu.set_cur_level(cur_level)
 	
 func _process(_delta):
+	fps.text = "FPS: %d" % [Engine.get_frames_per_second()]
+
 	if !in_menu and Input.is_action_just_pressed("pause"):
 		pause_menu.pauseMenu()
 

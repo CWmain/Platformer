@@ -8,7 +8,7 @@ enum MovementType {
 }
 
 const SPEED = 600.0
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -600.0
 
 @onready var player_vars = get_node("/root/Global")
 @onready var game_manager = %GameManager

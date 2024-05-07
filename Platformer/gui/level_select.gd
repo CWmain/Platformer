@@ -53,3 +53,5 @@ func _on_delete_save_pressed():
 	# Reload whole scene to update the coin count (Should improve this)
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+

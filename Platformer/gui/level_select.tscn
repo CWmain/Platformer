@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://n1m68v2i2yar"]
+[gd_scene load_steps=4 format=3 uid="uid://n1m68v2i2yar"]
 
 [ext_resource type="Script" path="res://gui/level_select.gd" id="1_v0j2t"]
 [ext_resource type="Texture2D" uid="uid://depvqs0y8xl2s" path="res://GameObjects/TitleImage.png" id="2_w6u2b"]
+[ext_resource type="Script" path="res://gui/FullScreenBox.gd" id="3_5wc86"]
 
 [node name="level_select" type="Node2D"]
 script = ExtResource("1_v0j2t")
@@ -54,4 +55,13 @@ layout_mode = 2
 layout_mode = 2
 columns = 4
 
+[node name="FullScreenBox" type="CheckBox" parent="."]
+offset_left = 1000.0
+offset_top = 529.0
+offset_right = 1108.0
+offset_bottom = 560.0
+text = "FullScreen"
+script = ExtResource("3_5wc86")
+
 [connection signal="pressed" from="delete_save" to="." method="_on_delete_save_pressed"]
+[connection signal="toggled" from="FullScreenBox" to="FullScreenBox" method="_on_toggled"]

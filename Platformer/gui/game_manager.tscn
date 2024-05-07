@@ -17,6 +17,12 @@ offset_top = 15.0
 offset_right = 277.0
 offset_bottom = 111.0
 
+[node name="Health_Bar" parent="UI/Panel" instance=ExtResource("3_38bf1")]
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 131.0
+offset_bottom = 46.0
+
 [node name="Points" type="Label" parent="UI/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -30,6 +36,14 @@ text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="FPS" type="Label" parent="UI/Panel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 6.0
+offset_right = 216.0
+offset_bottom = 37.0
+text = "FPS"
+
 [node name="PauseMenu" parent="UI" instance=ExtResource("2_qxu45")]
 visible = false
 offset_left = 2.0
@@ -42,9 +56,4 @@ main_menu_path = "res://gui/level_select.tscn"
 visible = false
 
 [node name="lossMenu" parent="UI" instance=ExtResource("4_6dhdd")]
-
-[node name="Health_Bar" parent="UI" instance=ExtResource("3_38bf1")]
-offset_left = 50.0
-offset_top = 23.0
-offset_right = 172.0
-offset_bottom = 61.0
+visible = false
