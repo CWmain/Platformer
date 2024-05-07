@@ -18,6 +18,7 @@ offset_right = 277.0
 offset_bottom = 111.0
 
 [node name="Health_Bar" parent="UI/Panel" instance=ExtResource("3_38bf1")]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 8.0
 offset_right = 131.0

@@ -3,9 +3,16 @@ extends Area2D
 @export_file() var next_lvl
 
 @onready var game_manager = %GameManager
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 func _on_body_entered(body):
 	if (body.name == "Player"):
-		game_manager.game_won()
+		body.win_state()
+		animated_sprite_2d.play("default")
+		
 
+
+#Note that the finish flag calls game_won(), not the player
+func _on_animated_sprite_2d_animation_finished():
+	game_manager.game_won()
