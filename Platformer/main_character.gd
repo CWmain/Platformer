@@ -20,7 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spiked_timer = $spiked
 @onready var damage_particles = $DamageParticles
-@onready var confetti_particles = $ConfettiParticles
+
 
 var player_lock : bool = false
 
@@ -142,10 +142,10 @@ func _physics_process(delta):
 func remove_health(amount: int):
 	game_manager.take_damage(amount)
 
-func win_state():	
+func win_state():
 	player_lock = true
 	animated_sprite_2d.play("win")
-	confetti_particles.set_emitting(true)
+	
 
 func spike_damage():
 	velocity = -velocity

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dja28yf0n5ix5"]
+[gd_scene load_steps=11 format=3 uid="uid://dja28yf0n5ix5"]
 
 [ext_resource type="Texture2D" uid="uid://dyqpv0gq0i264" path="res://GameObjects/finish.png" id="1_754rm"]
 [ext_resource type="Script" path="res://GameObjects/finish.gd" id="1_wgwbv"]
+[ext_resource type="PackedScene" uid="uid://b1nfkv5ddybwa" path="res://Particles/confetti.tscn" id="3_08m57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhugd"]
 size = Vector2(18, 31)
@@ -41,12 +42,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e4tus")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_h05kn")
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="Finish" type="Area2D"]
@@ -59,6 +60,9 @@ shape = SubResource("RectangleShape2D_mhugd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1khqv")
+
+[node name="Confetti" parent="." instance=ExtResource("3_08m57")]
+position = Vector2(-6, -15)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

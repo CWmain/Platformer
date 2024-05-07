@@ -4,11 +4,12 @@ extends Area2D
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
+@onready var confetti_particles = $Confetti
 
 func _on_body_entered(body):
 	if (body.name == "Player"):
 		body.win_state()
+		confetti_particles.emmit()	
 		animated_sprite_2d.play("default")
 		
 
