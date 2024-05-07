@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6y24wcwc7b4s"]
+[gd_scene load_steps=17 format=3 uid="uid://6y24wcwc7b4s"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_8pe5h"]
 [ext_resource type="Texture2D" uid="uid://bq36frf7amc6h" path="res://gui/BackgroundTile.png" id="2_1vqmh"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://fwfpuyh08wnv" path="res://GameObjects/icy.tscn" id="3_n0kd5"]
 [ext_resource type="Texture2D" uid="uid://bhx4kby3e01g2" path="res://Parallax Background/FarSky.png" id="3_ppdc8"]
 [ext_resource type="Texture2D" uid="uid://bnq7qgedlxw4c" path="res://Parallax Background/FarCloud.png" id="4_a8whk"]
-[ext_resource type="Texture2D" uid="uid://cqrdi5qmw7uaf" path="res://Parallax Background/CloseTrees.png" id="4_j5if8"]
+[ext_resource type="Script" path="res://Parallax Scripts/CloseClouds.gd" id="4_blefk"]
+[ext_resource type="Texture2D" uid="uid://608j0j21ajf3" path="res://Parallax Background/CloseCloud.png" id="4_xn8lx"]
 [ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="5_1agf5"]
 [ext_resource type="PackedScene" uid="uid://bp1nlmyq3t7wb" path="res://main_character.tscn" id="6_2s6l2"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
@@ -113,13 +114,14 @@ position = Vector2(0, 158)
 texture = ExtResource("4_a8whk")
 centered = false
 
-[node name="CloseTrees" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0)
+[node name="CloseClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0)
 motion_mirroring = Vector2(1920, 0)
+script = ExtResource("4_blefk")
 
-[node name="Trees" type="Sprite2D" parent="ParallaxBackground/CloseTrees"]
-position = Vector2(959, 526)
-texture = ExtResource("4_j5if8")
+[node name="CloseClouds" type="Sprite2D" parent="ParallaxBackground/CloseClouds"]
+position = Vector2(959, 265)
+texture = ExtResource("4_xn8lx")
 
 [node name="GameManager" parent="." instance=ExtResource("2_lwyry")]
 unique_name_in_owner = true
