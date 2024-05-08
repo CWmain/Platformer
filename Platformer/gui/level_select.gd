@@ -3,7 +3,7 @@ extends Node2D
 const LEVEL_BTN = preload("res://gui/lvl_button.tscn")
 
 #Manually enter level name and associated amount of coins in the level
-@export var level_coin_count = {"Level_1": 5, "Level_2": 7}
+@export var level_coin_count = {"Level_1": 5, "Level_2": 7, "Test_Level": 3}
 
 @export_dir var dir_path
 
@@ -46,7 +46,7 @@ func _on_delete_save_pressed():
 		if !FileAccess.file_exists(save_path % level):
 			print("No save for ", level)
 			continue
-		#Set value to 0
+		
 		var dir = DirAccess.open("user://")
 		dir.remove(str(level, ".save"))
 		dir.list_dir_end()

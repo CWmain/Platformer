@@ -6,7 +6,8 @@ extends Node
 
 @export var level_name : String = "Level_1"
 
-var save_path = "user://%s.save" % level_name
+#Given value on_ready otherwise uses wrong var
+var save_path : String
 
 @onready var global = $"/root/Global"
 
@@ -24,6 +25,8 @@ var points = 0
 var in_menu: bool = false
 
 func _ready():
+	save_path = "user://%s.save" % level_name
+	print("Current Level: ", level_name)
 	health_bar.display_health(health)
 	win_menu.set_next_level(next_level)
 	win_menu.set_main_menu(main_menu)
@@ -73,7 +76,9 @@ func save_highscore():
 	# Do nothing if new score is less than 
 	if (self.points < global.coins_collected(level_name)):
 		return
+
 	var save = FileAccess.open(save_path, FileAccess.WRITE)
+
 	save.store_var(self.points)
 	save.close()
 
