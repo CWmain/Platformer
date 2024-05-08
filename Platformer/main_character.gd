@@ -59,7 +59,7 @@ func _physics_process(delta):
 		movementType = MovementType.Stand
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !player_lock:
 		velocity.y = JUMP_VELOCITY
 
 	# Handle drop down
@@ -96,7 +96,7 @@ func _physics_process(delta):
 		ray_cast.set_indexed("rotation", grapple_angle)
 		
 	# Do graple
-	if Input.is_action_just_pressed("jump") and not is_on_floor():
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and !player_lock:
 		print("Attemptiong grapple")
 		if ray_cast.is_colliding():
 			print("Grapling")
