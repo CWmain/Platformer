@@ -13,6 +13,8 @@ const JUMP_VELOCITY = -600.0
 @onready var player_vars = get_node("/root/Global")
 @onready var game_manager = %GameManager
 
+@onready var camera_2d = $Camera2D
+var cameraLock : bool = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var last_on_ground = self.get_indexed("position")
@@ -158,6 +160,11 @@ func spike_damage():
 		remove_health(1)
 		
 
+func fall_damage():
+	if spiked_timer.is_stopped():
+		player_lock = true
+		spiked_timer.start()
+		remove_health(1)
 
 func _on_spiked_timeout():
 	spiked_timer.stop()
@@ -187,5 +194,14 @@ func set_is_on_ice(val : bool):
 	
 	is_on_ice = val
 
-
+func toggle_camera_y_lock():
+	if cameraLock:
+		print("Camera Free")
+		camera_2d.limit_bottom = 10000000
+		cameraLock = false
+	else:
+		print("Camera Lock")
+		camera_2d.limit_bottom = position.y+256+64+16
+		cameraLock = true
+	
 

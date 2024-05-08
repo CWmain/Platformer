@@ -210,7 +210,6 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.2, 0.2)
 process_callback = 0
-limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 

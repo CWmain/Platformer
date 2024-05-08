@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://uqhqhuof5nm4"]
+
+[ext_resource type="Script" path="res://GameObjects/Pit.gd" id="1_gmmxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1ctp"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjtdu"]
+size = Vector2(32, 224)
+
+[node name="Pit" type="Node2D"]
+script = ExtResource("1_gmmxd")
+
+[node name="KillBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_q1ctp")
+
+[node name="CameraYLock" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraYLock"]
+position = Vector2(0, -112)
+shape = SubResource("RectangleShape2D_mjtdu")
+
+[connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
+[connection signal="body_exited" from="KillBox" to="." method="_on_kill_box_body_exited"]
+[connection signal="body_entered" from="CameraYLock" to="." method="_on_camera_y_lock_body_entered"]
+[connection signal="body_exited" from="CameraYLock" to="." method="_on_camera_y_lock_body_exited"]
