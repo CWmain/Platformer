@@ -56,3 +56,9 @@ func _on_delete_save_pressed():
 	pass # Replace with function body.
 
 
+
+
+func _on_options_button_pressed():
+	$MarginContainer.hide()
+	$Options.show()
+	pass # Replace with function body.

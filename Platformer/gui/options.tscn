@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://gui/FullScreenBox.gd" id="1_y45tx"]
 
 [node name="Options" type="Control"]
+layout_direction = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
