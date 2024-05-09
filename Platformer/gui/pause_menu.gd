@@ -33,3 +33,9 @@ func _on_main_menu_pressed():
 func _on_resume_pressed():
 	
 	pauseMenu()
+
+
+func _on_options_pressed():
+	$MarginContainer.hide()
+	$Options.show()
+	pass # Replace with function body.

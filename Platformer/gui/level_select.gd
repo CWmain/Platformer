@@ -3,12 +3,13 @@ extends Node2D
 const LEVEL_BTN = preload("res://gui/lvl_button.tscn")
 
 #Manually enter level name and associated amount of coins in the level
-@export var level_coin_count = {"Level_1": 5, "Level_2": 7, "Test_Level": 3}
+
 
 @export_dir var dir_path
 
 @onready var grid = $MarginContainer/VBoxContainer/GridContainer
 @onready var global = $"/root/Global"
+@onready var level_coin_count = global.level_coin_count
 
 func _ready() -> void:
 	get_levels(dir_path)

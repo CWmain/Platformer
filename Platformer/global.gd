@@ -1,5 +1,7 @@
 extends Node
 
+var level_coin_count = {"Level_1": 5, "Level_2": 7, "Test_Level": 3}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

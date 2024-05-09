@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfuscteiwe1ky"]
+[gd_scene load_steps=4 format=3 uid="uid://dfuscteiwe1ky"]
 
 [ext_resource type="Script" path="res://gui/pause_menu.gd" id="1_l74sp"]
+[ext_resource type="PackedScene" uid="uid://c5tis4nwwokaq" path="res://gui/options.tscn" id="2_fxlyo"]
 [ext_resource type="Theme" uid="uid://cy2tlc6vdyp2b" path="res://gui/pause_menu.tres" id="2_wg2np"]
 
 [node name="PauseMenu" type="Control"]
@@ -11,6 +12,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l74sp")
+
+[node name="Options" parent="." node_paths=PackedStringArray("previousMenu") instance=ExtResource("2_fxlyo")]
+visible = false
+layout_mode = 1
+previousMenu = NodePath("../MarginContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -34,6 +40,11 @@ layout_mode = 2
 theme = ExtResource("2_wg2np")
 text = "Resume"
 
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wg2np")
+text = "Options"
+
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_wg2np")
@@ -45,5 +56,6 @@ theme = ExtResource("2_wg2np")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
