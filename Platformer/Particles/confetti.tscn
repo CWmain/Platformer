@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1nfkv5ddybwa"]
+[gd_scene load_steps=6 format=3 uid="uid://b1nfkv5ddybwa"]
 
 [ext_resource type="Script" path="res://Particles/confetti.gd" id="1_2q5eg"]
 [ext_resource type="Material" uid="uid://bc5kumsnitw1y" path="res://Particles/confetti/confettiRed.tres" id="1_m7n5r"]
 [ext_resource type="Material" uid="uid://c1n4ajeutwx1r" path="res://Particles/confetti/confettiGreen.tres" id="2_81340"]
 [ext_resource type="Material" uid="uid://cfkn0w0k47ykf" path="res://Particles/confetti/confettiBlue.tres" id="3_ilqfw"]
+[ext_resource type="AudioStream" uid="uid://dd8tux4rbaoau" path="res://sounds/confetti.ogg" id="5_2kpht"]
 
 [node name="Confetti" type="Node2D"]
 script = ExtResource("1_2q5eg")
@@ -34,3 +35,6 @@ process_material = ExtResource("3_ilqfw")
 lifetime = 5.0
 one_shot = true
 speed_scale = 4.0
+
+[node name="confettiAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2kpht")

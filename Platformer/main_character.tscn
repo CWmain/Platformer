@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bsl8bgqtk1t2x" path="res://Character/CharacterIdle.png" id="3_qemro"]
 [ext_resource type="Texture2D" uid="uid://dcsif0hv4dcob" path="res://Character/CharacterMove.png" id="4_5688i"]
 [ext_resource type="Texture2D" uid="uid://13fxmwxon413" path="res://Character/CharacterWin.png" id="6_xi0by"]
-[ext_resource type="AudioStream" uid="uid://dnwxp1vbdyged" path="res://sounds/SnowWalk/SnowWalk2.ogg" id="8_aaeyx"]
-[ext_resource type="AudioStream" uid="uid://c2yqn6simogcy" path="res://sounds/shoot.ogg" id="8_esfa2"]
-[ext_resource type="AudioStream" uid="uid://dpnp1c1mlqq3l" path="res://sounds/jumpEffect.ogg" id="10_u8ppc"]
-[ext_resource type="AudioStream" uid="uid://bqoahypipw6ne" path="res://sounds/stab.ogg" id="11_lptd0"]
+[ext_resource type="AudioStream" uid="uid://c2yqn6simogcy" path="res://sounds/player/shoot.ogg" id="8_rlsxm"]
+[ext_resource type="AudioStream" uid="uid://dnwxp1vbdyged" path="res://sounds/player/SnowWalk/SnowWalk2.ogg" id="9_qy3v6"]
+[ext_resource type="AudioStream" uid="uid://dpnp1c1mlqq3l" path="res://sounds/player/jumpEffect.ogg" id="10_80nwy"]
+[ext_resource type="AudioStream" uid="uid://bqoahypipw6ne" path="res://sounds/player/stab.ogg" id="11_g5ybr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tsjd"]
 atlas = ExtResource("3_1kp13")
@@ -226,22 +226,22 @@ scale = Vector2(1, 1)
 
 [node name="GrappleAudio" type="AudioStreamPlayer2D" parent="Sounds"]
 scale = Vector2(1, 1)
-stream = ExtResource("8_esfa2")
+stream = ExtResource("8_rlsxm")
 volume_db = 18.0
 bus = &"SFX"
 
 [node name="WalkingAudio" type="AudioStreamPlayer2D" parent="Sounds"]
 scale = Vector2(1, 1)
-stream = ExtResource("8_aaeyx")
+stream = ExtResource("9_qy3v6")
 bus = &"SFX"
 
 [node name="JumpAudio" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("10_u8ppc")
+stream = ExtResource("10_80nwy")
 volume_db = 10.0
 bus = &"SFX"
 
 [node name="SpikedAudio" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("11_lptd0")
+stream = ExtResource("11_g5ybr")
 volume_db = 15.0
 
 [connection signal="draw" from="." to="." method="_on_draw"]

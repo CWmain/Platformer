@@ -4,10 +4,12 @@ extends Node
 @onready var confetti_green = $ConfettiGreen
 @onready var confetti_blue = $ConfettiBlue
 
-# Called when the node enters the scene tree for the first time.
+@onready var confetti_audio = $confettiAudio
+
 
 func emmit():
 	print("Confetti!!!")
+	confetti_audio.play()
 	confetti_blue.set_emitting(true)
 	confetti_green.set_emitting(true)
 	confetti_red.set_emitting(true)

@@ -79,6 +79,9 @@ position = Vector2(538, 278)
 [node name="coin3" parent="SceneObjects/Coins" instance=ExtResource("12_shm08")]
 position = Vector2(869, 283)
 
+[node name="coin4" parent="SceneObjects/Coins" instance=ExtResource("12_shm08")]
+position = Vector2(273, 369)
+
 [node name="spikey" parent="SceneObjects" instance=ExtResource("13_1oj4o")]
 position = Vector2(960, 343)
 scale = Vector2(40, 1)
