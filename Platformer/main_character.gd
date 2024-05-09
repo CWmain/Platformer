@@ -43,6 +43,13 @@ var is_facing = 1
 var collision_point : Vector2
 const grapple_length = 500
 
+#audio var
+@onready var walking_audio = $Sounds/WalkingAudio
+@onready var grapple_audio = $Sounds/GrappleAudio
+@onready var jump_audio = $Sounds/JumpAudio
+@onready var spiked_audio = $Sounds/SpikedAudio
+
+
 func _ready():
 	spiked_timer.stop()
 	pass
@@ -51,6 +58,11 @@ func set_respawn(coords : Vector2):
 	last_on_ground = coords
 
 func _physics_process(delta):
+	
+	#If player just landed play jump sound for landing
+	if (movementType == MovementType.Air and is_on_floor()):
+		jump_audio.play()
+	
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -61,6 +73,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and !player_lock:
 		velocity.y = JUMP_VELOCITY
+		jump_audio.play()
 
 	# Handle drop down
 	if Input.is_action_just_pressed("down"):
@@ -100,7 +113,7 @@ func _physics_process(delta):
 		print("Attemptiong grapple")
 		if ray_cast.is_colliding():
 			print("Grapling")
-			
+			grapple_audio.play()
 			collision_point = ray_cast.get_collision_point()
 			is_grappling = true
 			
@@ -129,6 +142,8 @@ func _physics_process(delta):
 
 	#Give me the modification to velocity that walking on the floor does
 	if movementType == MovementType.Walk:
+		if !walking_audio.playing:
+			walking_audio.play()
 		velocity.x = move_toward(velocity.x, direction * (SPEED + 100), 100)
 	
 	#Give me the behaviour for standing
@@ -151,7 +166,7 @@ func win_state():
 
 func spike_damage():
 	velocity = -velocity
-
+	spiked_audio.play()
 	if spiked_timer.is_stopped():
 		animated_sprite_2d.play("damage")
 		player_lock = true

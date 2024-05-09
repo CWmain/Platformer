@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://l70qcikpqbsv"]
+[gd_scene load_steps=17 format=3 uid="uid://l70qcikpqbsv"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_w4kvf"]
 [ext_resource type="Texture2D" uid="uid://bhx4kby3e01g2" path="res://Parallax Background/FarSky.png" id="2_3aks2"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="13_1oj4o"]
 [ext_resource type="PackedScene" uid="uid://ffci5yn1m8nd" path="res://GameObjects/checkpoint.tscn" id="14_n613c"]
 [ext_resource type="PackedScene" uid="uid://uqhqhuof5nm4" path="res://GameObjects/pit.tscn" id="15_8bk4t"]
+[ext_resource type="AudioStream" uid="uid://qq7b7i1rgevt" path="res://sounds/random silly chip song.ogg" id="15_aqpw6"]
+[ext_resource type="Script" path="res://sounds/BackgroundMusic.gd" id="16_j3vmq"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_w4kvf")
@@ -96,3 +98,11 @@ position = Vector2(79, 435)
 [node name="Checkpoint" parent="SceneObjects" instance=ExtResource("14_n613c")]
 position = Vector2(715, 240)
 scale = Vector2(5, 5)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_aqpw6")
+autoplay = true
+bus = &"Music"
+script = ExtResource("16_j3vmq")
+
+[connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
