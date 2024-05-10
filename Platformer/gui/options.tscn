@@ -60,19 +60,22 @@ layout_mode = 2
 [node name="master" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
 layout_mode = 2
 bus_name = "Master"
-optionValue = 20
+settingSave = "user://settings.cfg"
+optionValue = 50.0
 optionName = "Master"
 
 [node name="music" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
 layout_mode = 2
 bus_name = "Music"
-optionValue = 20
+settingSave = "user://settings.cfg"
+optionValue = 50.0
 optionName = "Music"
 
 [node name="sfx" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
 layout_mode = 2
 bus_name = "SFX"
-optionValue = 20
+settingSave = "user://settings.cfg"
+optionValue = 50.0
 optionName = "SFX"
 
 [node name="Sound" type="Label" parent="TabContainer/Sound/VBoxContainer"]
