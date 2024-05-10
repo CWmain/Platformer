@@ -26,6 +26,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var player_lock : bool = false
 
+@export var canGrapple: bool = false
 @export var grapple_angle: int = 45
 @onready var ray_cast = $RayCast2D
 @onready var chain = $chain
@@ -109,7 +110,8 @@ func _physics_process(delta):
 		ray_cast.set_indexed("rotation", grapple_angle)
 		
 	# Do graple
-	if Input.is_action_just_pressed("jump") and not is_on_floor() and !player_lock:
+	var grapple_check: bool = Input.is_action_just_pressed("jump") and not is_on_floor() and !player_lock and canGrapple
+	if grapple_check:
 		print("Attemptiong grapple")
 		if ray_cast.is_colliding():
 			print("Grapling")
