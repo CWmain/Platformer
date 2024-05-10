@@ -23,8 +23,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var spiked_timer = $spiked
 @onready var damage_particles = $DamageParticles
 
-
+var pause_lock : bool = false
 var player_lock : bool = false
+#A combination of both to stop weird behviour of pausing
+var comb_lock: bool = false
 
 @export var canGrapple: bool = false
 @export var grapple_angle: int = 45
@@ -64,6 +66,10 @@ func _physics_process(delta):
 	if (movementType == MovementType.Air and is_on_floor()):
 		jump_audio.play()
 	
+	#lock player when escape pressed, this is to prevent animation
+	if Input.is_action_just_pressed("pause"):
+		pause_lock = !pause_lock
+	comb_lock = pause_lock or player_lock
 	# Add the gravity.
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -72,7 +78,7 @@ func _physics_process(delta):
 		movementType = MovementType.Stand
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !player_lock:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and !comb_lock:
 		velocity.y = JUMP_VELOCITY
 		jump_audio.play()
 
@@ -86,11 +92,11 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
 	#Takes control away from player
-	if player_lock:
+	if comb_lock:
 		direction = 0	
 		
 	if (direction == 0):
-		if !player_lock:
+		if !comb_lock:
 			animated_sprite_2d.play("idle")
 	else:
 		movementType = MovementType.Walk if is_on_floor() else MovementType.Air
@@ -110,7 +116,7 @@ func _physics_process(delta):
 		ray_cast.set_indexed("rotation", grapple_angle)
 		
 	# Do graple
-	var grapple_check: bool = Input.is_action_just_pressed("jump") and not is_on_floor() and !player_lock and canGrapple
+	var grapple_check: bool = Input.is_action_just_pressed("jump") and not is_on_floor() and !comb_lock and canGrapple
 	if grapple_check:
 		print("Attemptiong grapple")
 		if ray_cast.is_colliding():
