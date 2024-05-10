@@ -41,10 +41,10 @@ text = "Options"
 
 [node name="Options" parent="." node_paths=PackedStringArray("previousMenu") instance=ExtResource("4_xmwyv")]
 visible = false
-offset_left = 19.0
-offset_top = 213.0
-offset_right = 1171.0
-offset_bottom = 616.0
+offset_left = 1.0
+offset_top = 245.0
+offset_right = 1153.0
+offset_bottom = 648.0
 previousMenu = NodePath("../MarginContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
