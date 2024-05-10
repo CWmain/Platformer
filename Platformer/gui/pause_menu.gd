@@ -13,6 +13,8 @@ func pauseMenu():
 		Engine.time_scale = 1
 	else:
 		self.show()
+		$MarginContainer.show()
+		$Options.hide()
 		Engine.time_scale = 0
 	paused = !paused
 
@@ -31,7 +33,6 @@ func _on_main_menu_pressed():
 
 
 func _on_resume_pressed():
-	
 	pauseMenu()
 
 
