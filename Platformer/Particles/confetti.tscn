@@ -38,3 +38,4 @@ speed_scale = 4.0
 
 [node name="confettiAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_2kpht")
+bus = &"SFX"

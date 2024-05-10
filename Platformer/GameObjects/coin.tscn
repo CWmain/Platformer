@@ -71,6 +71,7 @@ shape = SubResource("CircleShape2D_teqyn")
 
 [node name="coinAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_d0egs")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="coinAudio" to="." method="_on_coin_audio_finished"]
