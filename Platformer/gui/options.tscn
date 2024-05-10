@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5tis4nwwokaq"]
+[gd_scene load_steps=4 format=3 uid="uid://c5tis4nwwokaq"]
 
 [ext_resource type="Script" path="res://gui/options.gd" id="1_bu24f"]
 [ext_resource type="Script" path="res://gui/FullScreenBox.gd" id="1_y45tx"]
+[ext_resource type="PackedScene" uid="uid://dopwmikiov08u" path="res://gui/num_setting.tscn" id="3_0l8ql"]
 
 [node name="Options" type="Control"]
 layout_direction = 2
@@ -24,8 +25,10 @@ offset_right = -100.0
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
 [node name="General" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -34,8 +37,6 @@ theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/General"]
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
 
 [node name="FullScreenBox" type="CheckBox" parent="TabContainer/General/VBoxContainer"]
 layout_mode = 2
@@ -46,8 +47,35 @@ script = ExtResource("1_y45tx")
 layout_mode = 2
 text = "Delete Save"
 
-[node name="Sound" type="Label" parent="TabContainer"]
-visible = false
+[node name="Sound" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound"]
+layout_mode = 2
+
+[node name="master" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
+layout_mode = 2
+bus_name = "Master"
+optionValue = 20
+optionName = "Master"
+
+[node name="music" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
+layout_mode = 2
+bus_name = "Music"
+optionValue = 20
+optionName = "Music"
+
+[node name="sfx" parent="TabContainer/Sound/VBoxContainer" instance=ExtResource("3_0l8ql")]
+layout_mode = 2
+bus_name = "SFX"
+optionValue = 20
+optionName = "SFX"
+
+[node name="Sound" type="Label" parent="TabContainer/Sound/VBoxContainer"]
 layout_mode = 2
 text = "Sound options will be here in the future"
 
