@@ -24,10 +24,8 @@ offset_left = 122.0
 offset_right = -78.0
 offset_bottom = -150.0
 grow_horizontal = 2
-current_tab = 1
 
 [node name="General" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -49,6 +47,7 @@ layout_mode = 2
 text = "Delete Save"
 
 [node name="Sound" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24

@@ -61,6 +61,6 @@ layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-columns = 4
+columns = 10
 
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

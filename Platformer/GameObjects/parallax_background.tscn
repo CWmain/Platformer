@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjf24a564puxq"]
+
+[ext_resource type="Texture2D" uid="uid://bhx4kby3e01g2" path="res://Parallax Background/FarSky.png" id="1_whtcy"]
+[ext_resource type="Texture2D" uid="uid://bnq7qgedlxw4c" path="res://Parallax Background/FarCloud.png" id="2_y2fkj"]
+[ext_resource type="Script" path="res://Parallax Scripts/CloseClouds.gd" id="3_yae5p"]
+[ext_resource type="Texture2D" uid="uid://608j0j21ajf3" path="res://Parallax Background/CloseCloud.png" id="4_q47c7"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+motion_scale = Vector2(0, 0)
+
+[node name="SkySpirte" type="Sprite2D" parent="Sky"]
+position = Vector2(398.667, 223.333)
+texture = ExtResource("1_whtcy")
+
+[node name="FarClouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="FC" type="Sprite2D" parent="FarClouds"]
+position = Vector2(0, 158)
+texture = ExtResource("2_y2fkj")
+centered = false
+
+[node name="CloseClouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("3_yae5p")
+
+[node name="CloseClouds" type="Sprite2D" parent="CloseClouds"]
+position = Vector2(959, 265)
+texture = ExtResource("4_q47c7")

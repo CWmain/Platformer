@@ -1,6 +1,6 @@
 extends Node
 
-var level_coin_count = {"Level_1": 5, "Level_2": 7, "Test_Level": 3}
+var level_coin_count = {"Level_1": 8, "Old_Level_1": 5, "Old_Level_2": 7, "Level_3": 10,"Test_Level": 3}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
