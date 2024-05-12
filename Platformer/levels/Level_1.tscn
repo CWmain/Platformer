@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcv5f1fdwr6wr"]
+[gd_scene load_steps=10 format=3 uid="uid://dcv5f1fdwr6wr"]
 
 [ext_resource type="TileSet" uid="uid://dloe41fq4jxvb" path="res://GameObjects/FullTileSet.tres" id="1_ece1b"]
 [ext_resource type="PackedScene" uid="uid://duosy5ihrlgqo" path="res://gui/black_load_in.tscn" id="1_s2j3n"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://qq7b7i1rgevt" path="res://sounds/random silly chip song.ogg" id="6_kosjs"]
 [ext_resource type="Script" path="res://sounds/BackgroundMusic.gd" id="7_2iiip"]
 [ext_resource type="PackedScene" uid="uid://deqfci0e0t815" path="res://GameObjects/coin.tscn" id="7_8n6jj"]
-[ext_resource type="PackedScene" uid="uid://ffci5yn1m8nd" path="res://GameObjects/checkpoint.tscn" id="10_grv82"]
 
 [node name="Node" type="Node"]
 
@@ -35,10 +34,6 @@ scale = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("6_2s6l2")]
 position = Vector2(61, -155)
-
-[node name="Checkpoint" parent="." instance=ExtResource("10_grv82")]
-position = Vector2(729, -88)
-scale = Vector2(5, 5)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_dcjv8")]
 

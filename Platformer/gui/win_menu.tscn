@@ -57,5 +57,5 @@ text = "WIN"
 label_settings = SubResource("LabelSettings_h8sda")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Next Level" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Next Level" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Next Level" to="." method="_on_quit_pressed"]
