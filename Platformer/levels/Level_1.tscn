@@ -32,7 +32,6 @@ layer_0/tile_data = PackedInt32Array(-131078, 262145, 0, -131077, 327681, 1, -65
 [node name="Finish" parent="." instance=ExtResource("5_1agf5")]
 position = Vector2(3356, -9.00006)
 scale = Vector2(5, 5)
-next_lvl = "res://levels/Test_Level.tscn"
 
 [node name="Player" parent="." instance=ExtResource("6_2s6l2")]
 position = Vector2(61, -155)
@@ -45,7 +44,7 @@ scale = Vector2(5, 5)
 
 [node name="GameManager" parent="." instance=ExtResource("2_lwyry")]
 unique_name_in_owner = true
-next_level = "res://levels/Test_Level.tscn"
+next_level = "res://levels/Level_2.tscn"
 main_menu = "res://gui/level_select.tscn"
 cur_level = "res://levels/Level_1.tscn"
 

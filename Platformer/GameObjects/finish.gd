@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_file() var next_lvl
+#@export_file() var next_lvl
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
