@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcv5f1fdwr6wr"]
+[gd_scene load_steps=11 format=3 uid="uid://dcv5f1fdwr6wr"]
 
 [ext_resource type="TileSet" uid="uid://dloe41fq4jxvb" path="res://GameObjects/FullTileSet.tres" id="1_ece1b"]
+[ext_resource type="PackedScene" uid="uid://duosy5ihrlgqo" path="res://gui/black_load_in.tscn" id="1_s2j3n"]
 [ext_resource type="PackedScene" uid="uid://dgj4ye5q61idm" path="res://gui/game_manager.tscn" id="2_lwyry"]
 [ext_resource type="PackedScene" uid="uid://bjf24a564puxq" path="res://GameObjects/parallax_background.tscn" id="4_dcjv8"]
 [ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="5_1agf5"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ffci5yn1m8nd" path="res://GameObjects/checkpoint.tscn" id="10_grv82"]
 
 [node name="Node" type="Node"]
+
+[node name="BlackLoadIn" parent="." instance=ExtResource("1_s2j3n")]
 
 [node name="CaveBackground" type="ColorRect" parent="."]
 offset_left = 2438.0
