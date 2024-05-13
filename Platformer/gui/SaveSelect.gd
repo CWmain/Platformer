@@ -1,30 +1,20 @@
-extends Node
-
-var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 12, "Old_Level_1": 5, "Old_Level_2": 7,"Test_Level": 3}
-var saveSlot = "save1"
+extends OptionButton
 
 @export var settingSave: String = "user://settings.cfg"
 @export var optionValue: int = 1
 @export var optionName: String = "saveSlot"
 
+
+@onready var global = $"/root/Global"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_settings()
-	saveSlot = "save%d" % (optionValue + 1)
-	pass # Replace with function body.
-
+	self.selected = optionValue
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
-func coins_collected(lvl_name: String) -> int:
-	var save_path = "user://%s/%s.save" % [saveSlot, lvl_name]
-	if !FileAccess.file_exists(save_path):
-		print("File does not exist")
-		return 0
-	var save = FileAccess.open(save_path, FileAccess.READ)
-	return save.get_var()
 
 func load_settings():
 	var settings: ConfigFile = ConfigFile.new()
@@ -39,3 +29,24 @@ func load_settings():
 		print(" does not exist in ", settingSave)
 		return
 	optionValue = prevSetting
+
+
+func save_settings():
+
+	var settings: ConfigFile = ConfigFile.new()
+	var err = settings.load(settingSave)
+	if err != OK:
+		print(settingSave, " does not exist")
+		settings = ConfigFile.new()
+
+	print("Saving ", optionName, " with ", optionValue)
+	settings.set_value("Settings", optionName, optionValue)
+	settings.save(settingSave)
+
+
+func _on_item_selected(index):
+	global.saveSlot = self.get_item_text(index)
+	optionValue = index
+	print(global.saveSlot)
+	save_settings()
+

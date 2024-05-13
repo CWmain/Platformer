@@ -25,7 +25,7 @@ var points = 0
 var in_menu: bool = false
 
 func _ready():
-	save_path = "user://%s.save" % level_name
+	save_path = "user://%s/%s.save" % [global.saveSlot, level_name]
 	print("Current Level: ", level_name)
 	health_bar.display_health(health)
 	win_menu.set_next_level(next_level)
@@ -73,9 +73,18 @@ func add_points():
 	print("Points: ", self.points)
 
 func save_highscore():
-	# Do nothing if new score is less than 
-	if (self.points < global.coins_collected(level_name)):
+	# Do nothing if new score is less or equal than 
+	if (self.points <= global.coins_collected(level_name)):
 		return
+
+	#Check directory exists, otherwise make it
+	var dir_path =  "user://"
+	var dir = DirAccess.open(dir_path)
+	if dir.dir_exists("%s/" % global.saveSlot):
+		print("Dir exists")
+	else:
+		print("Dir doesn't exist")
+		dir.make_dir("%s/" % global.saveSlot)
 
 	var save = FileAccess.open(save_path, FileAccess.WRITE)
 
