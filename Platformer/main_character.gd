@@ -94,7 +94,7 @@ func _physics_process(delta):
 	#Takes control away from player
 	if comb_lock:
 		direction = 0	
-		
+
 	if (direction == 0):
 		if !comb_lock:
 			animated_sprite_2d.play("idle")
@@ -217,8 +217,8 @@ func set_is_on_ice(val : bool):
 	
 	is_on_ice = val
 
-func toggle_camera_y_lock():
-	if cameraLock:
+func set_camera_y_lock(val: bool):
+	if !val:
 		print("Camera Free")
 		camera_2d.limit_bottom = 10000000
 		cameraLock = false
