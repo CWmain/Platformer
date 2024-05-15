@@ -32,5 +32,5 @@ motion_mirroring = Vector2(1920, 0)
 script = ExtResource("3_yae5p")
 
 [node name="CloseClouds" type="Sprite2D" parent="CloseClouds"]
-position = Vector2(959, 200)
+position = Vector2(959, 127)
 texture = ExtResource("4_q47c7")
