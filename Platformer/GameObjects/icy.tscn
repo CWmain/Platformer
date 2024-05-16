@@ -14,5 +14,18 @@ script = ExtResource("1_crmi5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="icy"]
 shape = SubResource("RectangleShape2D_rc4cm")
 
+[node name="ColorRect" type="ColorRect" parent="icy/CollisionShape2D"]
+custom_minimum_size = Vector2(32, 8)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.368627, 1, 1, 0.392157)
+
 [connection signal="body_entered" from="icy" to="icy" method="_on_body_entered"]
 [connection signal="body_exited" from="icy" to="icy" method="_on_body_exited"]

@@ -20,7 +20,8 @@ var save_path : String
 @onready var loss_menu = $UI/lossMenu
 
 var points = 0
-@export var health = 3
+@export var MAX_HEALTH = 3
+@onready var health = MAX_HEALTH
 
 var in_menu: bool = false
 
@@ -42,6 +43,9 @@ func _process(_delta):
 func take_damage(amount: int):
 	health -= amount
 	health_bar.display_health(health)
+	if health > 3:
+		return
+		
 	if health <= 0:
 		game_loss()
 	

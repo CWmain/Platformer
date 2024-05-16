@@ -59,6 +59,7 @@ func _ready():
 
 func set_respawn(coords : Vector2):
 	last_on_ground = coords
+	game_manager.take_damage(-1)
 
 func _physics_process(delta):
 	
