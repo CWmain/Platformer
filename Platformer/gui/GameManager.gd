@@ -53,6 +53,7 @@ func game_won():
 	in_menu = true
 	save_highscore()
 	Engine.time_scale = 0
+	global.save_continue(next_level)
 	win_menu.show()
 
 func game_loss():

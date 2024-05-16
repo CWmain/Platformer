@@ -40,3 +40,35 @@ func load_settings():
 		print(" does not exist in ", settingSave)
 		return
 	optionValue = prevSetting
+
+
+func get_continue() -> String:
+	var continueValue: String = "res://levels/Level_1.tscn"
+	var continueName: String = "continue"
+	
+	var settings: ConfigFile = ConfigFile.new()
+	var err = settings.load(settingSave)
+	if err != OK:
+		print(settingSave, " does not exist")
+		return continueValue
+	
+	var prevSetting : String = settings.get_value(saveSlot, continueName, "NULL")
+	print("error: ", err)
+	if prevSetting == "NULL":
+		print(" does not exist in ", settingSave)
+		return continueValue
+	
+	continueValue = prevSetting
+	
+	return continueValue
+
+func save_continue(lvl_name: String):
+	var settings: ConfigFile = ConfigFile.new()
+	var err = settings.load(settingSave)
+	if err != OK:
+		print(settingSave, " does not exist")
+		settings = ConfigFile.new()
+
+	print("Saving continue with ", lvl_name)
+	settings.set_value(saveSlot, "continue", lvl_name)
+	settings.save(settingSave)
