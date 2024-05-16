@@ -150,9 +150,13 @@ func _physics_process(delta):
 
 	#Give me the modification to velocity that walking on the floor does
 	if movementType == MovementType.Walk:
-		if !walking_audio.playing:
-			walking_audio.play()
-		velocity.x = move_toward(velocity.x, direction * (SPEED + 100), 100)
+		
+		if is_on_ice:
+			velocity.x = move_toward(velocity.x, direction * (SPEED + 100), 10)
+		else:
+			if !walking_audio.playing:
+				walking_audio.play()
+			velocity.x = move_toward(velocity.x, direction * (SPEED + 100), 100)
 	
 	#Give me the behaviour for standing
 	if movementType == MovementType.Stand:

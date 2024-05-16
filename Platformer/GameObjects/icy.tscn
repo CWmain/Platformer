@@ -3,15 +3,16 @@
 [ext_resource type="Script" path="res://GameObjects/icy.gd" id="1_crmi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4cm"]
-size = Vector2(143, 20)
+size = Vector2(32, 16)
 
-[node name="icy" type="Area2D"]
-position = Vector2(455, 199)
+[node name="BaseNode" type="Node2D"]
+
+[node name="icy" type="Area2D" parent="."]
+position = Vector2(16, -8)
 script = ExtResource("1_crmi5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="icy"]
 shape = SubResource("RectangleShape2D_rc4cm")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="icy" to="icy" method="_on_body_entered"]
+[connection signal="body_exited" from="icy" to="icy" method="_on_body_exited"]

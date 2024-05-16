@@ -52,7 +52,7 @@ scale = Vector2(5, 5)
 
 [node name="GameManager" parent="." instance=ExtResource("6_nihmh")]
 unique_name_in_owner = true
-next_level = "res://levels/Old_Level_1.tscn"
+next_level = "res://levels/Level_4.tscn"
 main_menu = "res://gui/level_select.tscn"
 cur_level = "res://levels/Level_3.tscn"
 level_name = "Level_3"
@@ -146,7 +146,7 @@ scale = Vector2(1, 16)
 [node name="Pits" type="Node" parent="."]
 
 [node name="Pit2" parent="Pits" instance=ExtResource("11_jajyo")]
-position = Vector2(2964, 316)
+position = Vector2(1650, 316)
 scale = Vector2(90, 2)
 
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]

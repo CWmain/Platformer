@@ -15,18 +15,21 @@ size = Vector2(32, 10)
 script = ExtResource("1_gmmxd")
 
 [node name="KillBox" type="Area2D" parent="."]
+position = Vector2(16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillBox"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_q1ctp")
 
 [node name="CameraYLock" type="Area2D" parent="."]
+position = Vector2(16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraYLock"]
 position = Vector2(0, -112)
 shape = SubResource("RectangleShape2D_mjtdu")
 
 [node name="CameraYFree" type="Area2D" parent="."]
+position = Vector2(16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraYFree"]
 position = Vector2(0, -229)
