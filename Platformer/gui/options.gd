@@ -26,5 +26,6 @@ func _on_delete_save_pressed():
 		var dir = DirAccess.open("user://%s/" % global.saveSlot)
 		dir.remove(str(level, ".save"))
 		dir.list_dir_end()
+	global.delete_continue()
 	Engine.time_scale = 1
 

@@ -2,7 +2,7 @@ extends Node
 
 var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 12, "Level_4": 12, 
 "Old_Level_1": 5, "Old_Level_2": 7,"Test_Level": 3}
-var saveSlot = "save1"
+var saveSlot = "Save1"
 
 @export var settingSave: String = "user://settings.cfg"
 @export var optionValue: int = 1
@@ -11,7 +11,7 @@ var saveSlot = "save1"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_settings()
-	saveSlot = "save%d" % (optionValue + 1)
+	saveSlot = "Save%d" % (optionValue + 1)
 	pass # Replace with function body.
 
 
@@ -61,6 +61,17 @@ func get_continue() -> String:
 	continueValue = prevSetting
 	
 	return continueValue
+
+func delete_continue():
+	var config: ConfigFile = ConfigFile.new()
+	var err = config.load(settingSave)
+	if err != OK:
+		print(config, " does not exist")
+		return
+
+	print("Deleteing save for ", saveSlot)
+	config.erase_section(saveSlot)
+	config.save(settingSave)
 
 func save_continue(lvl_name: String):
 	var settings: ConfigFile = ConfigFile.new()
