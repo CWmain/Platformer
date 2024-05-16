@@ -52,7 +52,7 @@ position = Vector2(61, -155)
 [node name="GameManager" parent="." instance=ExtResource("6_2k8v5")]
 unique_name_in_owner = true
 next_level = "res://levels/Level_3.tscn"
-main_menu = "res://gui/level_select.tscn"
+main_menu = "res://gui/main_menu.tscn"
 cur_level = "res://levels/Level_2.tscn"
 level_name = "Level_2"
 

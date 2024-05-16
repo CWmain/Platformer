@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://gui/level_select.gd" id="1_v0j2t"]
 [ext_resource type="Texture2D" uid="uid://depvqs0y8xl2s" path="res://GameObjects/TitleImage.png" id="2_w6u2b"]
-[ext_resource type="PackedScene" uid="uid://brvbaih0vle15" path="res://gui/levelSelect.tscn" id="4_cenua"]
+[ext_resource type="PackedScene" uid="uid://brvbaih0vle15" path="res://levelSelect.tscn" id="4_cenua"]
 [ext_resource type="PackedScene" uid="uid://c5tis4nwwokaq" path="res://gui/options.tscn" id="4_xmwyv"]
 
 [node name="level_select" type="Node2D"]
@@ -49,9 +49,5 @@ offset_bottom = 648.0
 reloadOnBack = true
 
 [node name="MarginContainer" parent="." instance=ExtResource("4_cenua")]
-offset_left = 198.0
-offset_top = 299.0
-offset_right = 984.0
-offset_bottom = 527.0
 
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

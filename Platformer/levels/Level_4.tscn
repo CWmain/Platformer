@@ -46,7 +46,7 @@ scale = Vector2(5, 5)
 [node name="GameManager" parent="." instance=ExtResource("6_2ny6f")]
 unique_name_in_owner = true
 next_level = "res://levels/Old_Level_1.tscn"
-main_menu = "res://gui/level_select.tscn"
+main_menu = "res://gui/main_menu.tscn"
 cur_level = "res://levels/Level_3.tscn"
 level_name = "Level_4"
 

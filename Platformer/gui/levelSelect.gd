@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const LEVEL_BTN = preload("res://gui/lvl_button.tscn")
 
@@ -7,13 +7,13 @@ const LEVEL_BTN = preload("res://gui/lvl_button.tscn")
 
 @export_dir var dir_path
 
-@onready var grid = $MarginContainer/VBoxContainer/GridContainer
+@onready var grid = %GridContainer
+@export var previousMenu : Control
 @onready var global = $"/root/Global"
 @onready var level_coin_count = global.level_coin_count
 
 func _ready() -> void:
-	#get_levels(dir_path)
-	pass
+	get_levels(dir_path)
 
 
 func get_levels(path) -> void:
@@ -62,4 +62,10 @@ func _on_delete_save_pressed():
 func _on_options_button_pressed():
 	$MarginContainer.hide()
 	$Options.show()
-	$Options.show()
+
+
+func _on_back_pressed():
+	self.hide()
+	if (previousMenu != null):
+		previousMenu.show()
+
