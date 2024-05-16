@@ -43,8 +43,7 @@ func _process(_delta):
 func take_damage(amount: int):
 	health -= amount
 	health_bar.display_health(health)
-	if health > 3:
-		return
+	health = min(MAX_HEALTH, health)
 		
 	if health <= 0:
 		game_loss()
