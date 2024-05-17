@@ -8,7 +8,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var value: float = calculate_percent() * 100
-	percent.text = "%.1f%%" % value
+	percent.text = "%.0f%%" % value
 	pass # Replace with function body.
 
 

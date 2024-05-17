@@ -56,6 +56,7 @@ const grapple_length = 500
 
 
 func _ready():
+	#initially freeze player for 2 seconds
 	inital_freeze.start(2)
 	start_lock = true
 	spiked_timer.stop()
@@ -74,6 +75,7 @@ func _physics_process(delta):
 	#lock player when escape pressed, this is to prevent animation
 	if Input.is_action_just_pressed("pause"):
 		pause_lock = !pause_lock
+	
 	comb_lock = pause_lock or player_lock or start_lock
 	# Add the gravity.
 	if !is_on_floor():
@@ -239,7 +241,7 @@ func set_camera_y_lock(val: bool):
 	
 
 
-
+# Timer to unfreeze player during inital load
 func _on_inital_freeze_timeout():
 	start_lock = false
 
