@@ -4,13 +4,18 @@ extends Control
 @export var previousMenu : Control
 @onready var global = $"/root/Global"
 @onready var level_coin_count = global.level_coin_count
+@onready var tab_container = $TabContainer
 
-
+func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		print("escape pressed")
+		_on_back_pressed()
 
 func _on_back_pressed():
 	if reloadOnBack:
 		get_tree().reload_current_scene()
 	self.hide()
+	tab_container.current_tab = 0
 	if (previousMenu != null):
 		previousMenu.show()
 
