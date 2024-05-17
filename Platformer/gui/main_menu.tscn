@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgfkak77g4ppd"]
+[gd_scene load_steps=6 format=3 uid="uid://cgfkak77g4ppd"]
 
 [ext_resource type="Script" path="res://gui/main_menu.gd" id="1_80pii"]
 [ext_resource type="PackedScene" uid="uid://c5tis4nwwokaq" path="res://gui/options.tscn" id="1_jc6uj"]
+[ext_resource type="Theme" uid="uid://18tdjdy6ctpx" path="res://gui/main_menu_button.tres" id="2_v60sl"]
 [ext_resource type="PackedScene" uid="uid://brvbaih0vle15" path="res://gui/levelSelect.tscn" id="3_fhyk1"]
+[ext_resource type="LabelSettings" uid="uid://5jbx24dywbh5" path="res://gui/main_menu.tres" id="4_updwn"]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_80pii")
@@ -27,11 +29,11 @@ scale = Vector2(1.64457, 3.23546)
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 456.0
-offset_top = 152.0
-offset_right = 575.0
-offset_bottom = 328.0
-scale = Vector2(2, 2)
+offset_left = 419.0
+offset_top = 269.0
+offset_right = 1574.0
+offset_bottom = 1445.0
+scale = Vector2(0.25, 0.25)
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
@@ -43,18 +45,22 @@ alignment = 1
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_v60sl")
 text = "Continue"
 
 [node name="LevelSelect" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_v60sl")
 text = "Level Select"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_v60sl")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_v60sl")
 text = "Quit
 "
 
@@ -74,6 +80,14 @@ offset_top = 260.0
 offset_right = 978.0
 offset_bottom = 538.0
 previousMenu = NodePath("../MarginContainer")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 312.0
+offset_top = 85.0
+offset_right = 836.0
+offset_bottom = 222.0
+text = "Platformer"
+label_settings = ExtResource("4_updwn")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]

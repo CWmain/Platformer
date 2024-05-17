@@ -1,6 +1,6 @@
 extends Node
 
-var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 12, "Level_4": 12, 
+var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 14, "Level_4": 12, 
 "Old_Level_1": 5, "Old_Level_2": 7,"Test_Level": 3}
 var saveSlot = "Save1"
 
