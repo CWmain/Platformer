@@ -34,6 +34,7 @@ scale = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("6_2s6l2")]
 position = Vector2(61, -155)
+canGrapple = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_dcjv8")]
 

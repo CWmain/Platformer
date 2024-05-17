@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgfkak77g4ppd"]
+[gd_scene load_steps=7 format=3 uid="uid://cgfkak77g4ppd"]
 
 [ext_resource type="Script" path="res://gui/main_menu.gd" id="1_80pii"]
 [ext_resource type="PackedScene" uid="uid://c5tis4nwwokaq" path="res://gui/options.tscn" id="1_jc6uj"]
 [ext_resource type="Theme" uid="uid://18tdjdy6ctpx" path="res://gui/main_menu_button.tres" id="2_v60sl"]
 [ext_resource type="PackedScene" uid="uid://brvbaih0vle15" path="res://gui/levelSelect.tscn" id="3_fhyk1"]
 [ext_resource type="LabelSettings" uid="uid://5jbx24dywbh5" path="res://gui/main_menu.tres" id="4_updwn"]
+[ext_resource type="PackedScene" uid="uid://bh5enpf38dnld" path="res://gui/completion_percentage.tscn" id="6_4bxfv"]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_80pii")
@@ -27,6 +28,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.64457, 3.23546)
 color = Color(0, 0, 0, 1)
+
+[node name="CompletionPercentage" parent="." instance=ExtResource("6_4bxfv")]
+offset_left = 838.0
+offset_top = 165.0
+offset_right = 838.0
+offset_bottom = 165.0
+rotation = 0.290649
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_left = 419.0
