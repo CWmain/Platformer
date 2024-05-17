@@ -1,14 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://duosy5ihrlgqo"]
+[gd_scene load_steps=4 format=3 uid="uid://duosy5ihrlgqo"]
 
 [ext_resource type="Script" path="res://gui/black_load_in.gd" id="1_ihhgk"]
+[ext_resource type="Texture2D" uid="uid://cdhu5kjl5sd70" path="res://Character/CharacterDamage.png" id="2_bb82c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrl0c"]
+atlas = ExtResource("2_bb82c")
+region = Rect2(0, 0, 32, 32)
 
 [node name="BlackLoadIn" type="CanvasLayer"]
 script = ExtResource("1_ihhgk")
 
 [node name="Black" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(576, 324)
 color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 571.0
+offset_top = 343.0
+offset_right = 611.0
+offset_bottom = 383.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+scale = Vector2(50, 50)
+texture = SubResource("AtlasTexture_rrl0c")

@@ -1,11 +1,12 @@
 extends CanvasLayer
 
-@onready var black = $Black
+@onready var black = $CenterContainer/Sprite2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var tween = create_tween()
-	tween.tween_property(black, "color", Color(0,0,0,0), 2)
+	tween.tween_property(black, "scale", Vector2(0,0), 1.5)
 	pass # Replace with function body.
 
 

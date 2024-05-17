@@ -22,7 +22,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spiked_timer = $spiked
 @onready var damage_particles = $DamageParticles
+@onready var inital_freeze = $InitalFreeze
 
+var start_lock : bool = true
 var pause_lock : bool = false
 var player_lock : bool = false
 #A combination of both to stop weird behviour of pausing
@@ -54,6 +56,8 @@ const grapple_length = 500
 
 
 func _ready():
+	inital_freeze.start(2)
+	start_lock = true
 	spiked_timer.stop()
 	pass
 
@@ -70,10 +74,11 @@ func _physics_process(delta):
 	#lock player when escape pressed, this is to prevent animation
 	if Input.is_action_just_pressed("pause"):
 		pause_lock = !pause_lock
-	comb_lock = pause_lock or player_lock
+	comb_lock = pause_lock or player_lock or start_lock
 	# Add the gravity.
 	if !is_on_floor():
-		velocity.y += gravity * delta
+		if !start_lock:
+			velocity.y += gravity * delta
 		movementType = MovementType.Air
 	else:
 		movementType = MovementType.Stand
@@ -232,4 +237,9 @@ func set_camera_y_lock(val: bool):
 		camera_2d.limit_bottom = position.y+256+64+16
 		cameraLock = true
 	
+
+
+
+func _on_inital_freeze_timeout():
+	start_lock = false
 
