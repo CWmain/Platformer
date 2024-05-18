@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b66b5ml5oyhns"]
+[gd_scene load_steps=15 format=3 uid="uid://b66b5ml5oyhns"]
 
 [ext_resource type="PackedScene" uid="uid://duosy5ihrlgqo" path="res://gui/black_load_in.tscn" id="1_pih8b"]
 [ext_resource type="PackedScene" uid="uid://dja28yf0n5ix5" path="res://GameObjects/finish.tscn" id="2_prwol"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ec1nu5pvsqak" path="res://GameObjects/spikey.tscn" id="11_qocdg"]
 [ext_resource type="PackedScene" uid="uid://uqhqhuof5nm4" path="res://GameObjects/pit.tscn" id="12_q0ipn"]
 [ext_resource type="PackedScene" uid="uid://fwfpuyh08wnv" path="res://GameObjects/icy.tscn" id="13_kvevf"]
+[ext_resource type="PackedScene" uid="uid://5qwbkotptka0" path="res://GameObjects/sign.tscn" id="14_48n35"]
 
 [node name="Node" type="Node"]
 
@@ -173,5 +174,10 @@ scale = Vector2(25, 1)
 [node name="icy4" parent="Icy" instance=ExtResource("13_kvevf")]
 position = Vector2(560, -951)
 scale = Vector2(58, 1)
+
+[node name="Sign" parent="." instance=ExtResource("14_48n35")]
+position = Vector2(336, -1280)
+scale = Vector2(10, 10)
+sign_text = "Jump in the air to grapple"
 
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
