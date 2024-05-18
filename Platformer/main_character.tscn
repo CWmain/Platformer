@@ -244,6 +244,5 @@ stream = ExtResource("11_g5ybr")
 volume_db = 15.0
 bus = &"SFX"
 
-[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="timeout" from="InitalFreeze" to="." method="_on_inital_freeze_timeout"]
 [connection signal="timeout" from="spiked" to="." method="_on_spiked_timeout"]
