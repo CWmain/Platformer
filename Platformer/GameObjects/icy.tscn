@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4cm"]
 size = Vector2(32, 16)
 
-[node name="BaseNode" type="Node2D"]
+[node name="Icy" type="Node2D"]
 
 [node name="icy" type="Area2D" parent="."]
 position = Vector2(16, -8)
