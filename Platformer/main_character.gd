@@ -135,11 +135,7 @@ func _physics_process(delta):
 			
 	# Stop grapple
 	if Input.is_action_just_released("jump") && (is_grappling):
-		print("Stop grappling")
-		chain.set_indexed("size", Vector2(32, 32))
-		chain.set_indexed("rotation", PI)
-
-		is_grappling = false
+		stop_grapple()
 	
 	#Give me the modification to velocity that grappling does
 	if is_grappling:
@@ -186,6 +182,7 @@ func win_state():
 
 func spike_damage():
 	velocity = -velocity
+	stop_grapple()
 	spiked_audio.play()
 	if spiked_timer.is_stopped():
 		animated_sprite_2d.play("damage")
@@ -196,6 +193,8 @@ func spike_damage():
 		
 
 func fall_damage():
+	stop_grapple()
+	velocity.x = 0
 	if spiked_timer.is_stopped():
 		player_lock = true
 		spiked_timer.start()
@@ -240,6 +239,12 @@ func set_camera_y_lock(val: bool):
 		cameraLock = true
 	
 
+func stop_grapple():
+	print("Stop grappling")
+	chain.set_indexed("size", Vector2(32, 32))
+	chain.set_indexed("rotation", PI)
+
+	is_grappling = false
 
 # Timer to unfreeze player during inital load
 func _on_inital_freeze_timeout():
