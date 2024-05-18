@@ -1,6 +1,6 @@
 extends Node
 
-var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 14, "Level_4": 14}
+var level_coin_count = {"Level_1": 8, "Level_2": 7, "Level_3": 14, "Level_4": 14, "Level_5": 14}
 var saveSlot = "Save1"
 
 @export var settingSave: String = "user://settings.cfg"
