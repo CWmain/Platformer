@@ -94,7 +94,7 @@ offset_left = 312.0
 offset_top = 85.0
 offset_right = 836.0
 offset_bottom = 222.0
-text = "Platformer"
+text = "Mountain"
 label_settings = ExtResource("4_updwn")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
