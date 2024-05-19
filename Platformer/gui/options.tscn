@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5tis4nwwokaq"]
+[gd_scene load_steps=6 format=3 uid="uid://c5tis4nwwokaq"]
 
 [ext_resource type="Script" path="res://gui/options.gd" id="1_bu24f"]
 [ext_resource type="Script" path="res://gui/FullScreenBox.gd" id="1_y45tx"]
 [ext_resource type="PackedScene" uid="uid://dopwmikiov08u" path="res://gui/num_setting.tscn" id="3_0l8ql"]
 [ext_resource type="Script" path="res://gui/SaveSelect.gd" id="3_dvo2x"]
+[ext_resource type="PackedScene" uid="uid://cxob6tqo33pvy" path="res://gui/delete_double_check.tscn" id="5_q5wg6"]
 
 [node name="Options" type="Control"]
 layout_direction = 2
@@ -25,10 +26,8 @@ offset_left = 122.0
 offset_right = -78.0
 offset_bottom = -150.0
 grow_horizontal = 2
-current_tab = 2
 
 [node name="General" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -94,6 +93,7 @@ optionValue = 50.0
 optionName = "SFX"
 
 [node name="Credits" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -139,6 +139,19 @@ offset_top = 46.0
 offset_right = 1044.0
 offset_bottom = 77.0
 text = "Back"
+
+[node name="deleteDoubleCheck" parent="." node_paths=PackedStringArray("deleteSave") instance=ExtResource("5_q5wg6")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 334.0
+offset_top = 33.0
+offset_right = 1238.0
+offset_bottom = 452.0
+scale = Vector2(3, 3)
+deleteSave = NodePath("..")
 
 [connection signal="toggled" from="TabContainer/General/VBoxContainer/FullScreenBox" to="TabContainer/General/VBoxContainer/FullScreenBox" method="_on_toggled"]
 [connection signal="item_selected" from="TabContainer/General/VBoxContainer/SaveSelect" to="TabContainer/General/VBoxContainer/SaveSelect" method="_on_item_selected"]
