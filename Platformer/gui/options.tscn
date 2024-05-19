@@ -25,8 +25,10 @@ offset_left = 122.0
 offset_right = -78.0
 offset_bottom = -150.0
 grow_horizontal = 2
+current_tab = 2
 
 [node name="General" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
@@ -90,6 +92,45 @@ bus_name = "SFX"
 settingSave = "user://settings.cfg"
 optionValue = 50.0
 optionName = "SFX"
+
+[node name="Credits" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 24
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Credits"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Audio Credits:
+[ul]
+Level Music
+[ul]
+https://opengameart.org/content/jump-and-run-8-bit
+[/ul]
+Grapple Sound
+[ul]
+https://opengameart.org/content/bow-arrow-shot
+[/ul]
+Walking Sound
+[ul]
+https://opengameart.org/content/walking-on-snow-sound
+[/ul]
+Jump / Landing Sound
+[ul]
+https://opengameart.org/content/jump-landing-sound
+[/ul]
+Spike Stab Sound
+[ul]
+https://www.zapsplat.com/music/hit-of-a-small-bullet-into-a-body-fleshy-sound/
+[/ul]
+Coin collect Sound
+[ul]
+https://opengameart.org/content/picked-coin-echo
+[/ul]
+[/ul]
+"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
