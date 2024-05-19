@@ -13,7 +13,11 @@ const LEVEL_BTN = preload("res://gui/lvl_button.tscn")
 @onready var level_coin_count = global.level_coin_count
 
 func _ready() -> void:
-	get_levels(dir_path)
+	var allButtons = grid.get_children()
+	for bt in allButtons:
+		var ctext = "%s / %s" % [global.coins_collected(bt.text), level_coin_count[bt.text]]
+		bt.set_collected(ctext)
+	#get_levels(dir_path)
 
 
 func get_levels(path) -> void:

@@ -14,7 +14,6 @@
 [node name="Node" type="Node"]
 
 [node name="BlackLoadIn" parent="." instance=ExtResource("1_s2j3n")]
-visible = false
 
 [node name="CaveBackground" type="ColorRect" parent="."]
 offset_left = 2438.0

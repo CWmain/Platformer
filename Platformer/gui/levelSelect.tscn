@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://brvbaih0vle15"]
+[gd_scene load_steps=3 format=3 uid="uid://brvbaih0vle15"]
 
 [ext_resource type="Script" path="res://gui/levelSelect.gd" id="1_d4uf6"]
+[ext_resource type="PackedScene" uid="uid://dl703sx805a40" path="res://gui/lvl_button.tscn" id="2_0ab7a"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -34,6 +35,31 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 columns = 10
+
+[node name="Button" parent="VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_0ab7a")]
+layout_mode = 2
+text = "Level_1"
+level_path = "res://levels/Level_1.tscn"
+
+[node name="Button2" parent="VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_0ab7a")]
+layout_mode = 2
+text = "Level_2"
+level_path = "res://levels/Level_2.tscn"
+
+[node name="Button3" parent="VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_0ab7a")]
+layout_mode = 2
+text = "Level_3"
+level_path = "res://levels/Level_3.tscn"
+
+[node name="Button4" parent="VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_0ab7a")]
+layout_mode = 2
+text = "Level_4"
+level_path = "res://levels/Level_4.tscn"
+
+[node name="Button5" parent="VBoxContainer/MarginContainer/GridContainer" instance=ExtResource("2_0ab7a")]
+layout_mode = 2
+text = "Level_5"
+level_path = "res://levels/Level_5.tscn"
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
